@@ -1,0 +1,154 @@
+/* styles.css */
+
+/* General Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #f0f0f0;
+    background: linear-gradient(to bottom right, #1e1e2f, #3a3a5d);
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+a {
+    color: #ffc107;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ffeb3b;
+}
+
+/* Header */
+header {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #ffc107;
+}
+
+nav {
+    margin-top: 15px;
+}
+
+nav a {
+    margin: 0 15px;
+    font-size: 1.1rem;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('images/picture.png');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero h2 {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 15px 30px;
+    border-radius: 12px;
+    font-size: 2rem;
+    color: #fff;
+}
+
+/* Content Sections */
+.content-section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.content-section h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #ffeb3b;
+}
+
+.content-section p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 10px auto 20px;
+}
+
+aside details {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    width: fit-content;
+    margin: 20px auto;
+    cursor: pointer;
+}
+
+aside details summary {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #ffc107;
+}
+
+aside details p {
+    margin-top: 10px;
+}
+
+/* Portfolio Gallery */
+.portfolio-gallery img {
+    width: 90%;
+    max-width: 700px;
+    margin: 20px auto;
+    display: block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #f0f0f0;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #ffc107;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav a {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .hero h2 {
+        font-size: 1.5rem;
+        padding: 10px 20px;
+    }
+}

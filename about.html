@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Katherine McNeil">
+    <meta name="description" content="Learn more about Katherine McNeil and her work.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Katherine McNeil</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #2c2c2c;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #2a2a2a;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px solid #84d7f7;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 15px 0 0;
+        }
+
+        nav ul li {
+            margin: 0 12px;
+        }
+
+        nav ul li a {
+            color: #eaeaea;
+            font-size: 1rem;
+            padding: 6px 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a.active,
+        nav ul li a:hover {
+            background-color: #84d7f7;
+            color: #1a1a1d;
+        }
+
+        .hero {
+            background-image: url('images/about-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 20px;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h2 {
+            font-size: 2.4rem;
+            margin-bottom: 12px;
+            color: #84d7f7; /* Blue color for your name */
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 720px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 12px 18px;
+            border-radius: 8px;
+        }
+
+        .resume-section {
+            max-width: 1000px;
+            background-color: #fff;
+            padding: 50px 30px;
+            border-radius: 12px;
+            margin: 40px auto;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .resume-section h2 {
+            font-size: 2rem;
+            text-align: center;
+            color: #1e1e1e;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #84d7f7;
+            padding-bottom: 10px;
+        }
+
+        .resume-section h3 {
+            font-size: 1.5rem;
+            color: #2c2c2c;
+            margin-top: 25px;
+            border-left: 4px solid #84d7f7;
+            padding-left: 10px;
+        }
+
+        .resume-section ul {
+            list-style: disc inside;
+            margin: 15px 0 25px;
+            line-height: 1.7;
+            padding-left: 20px;
+        }
+
+        .resume-section p {
+            font-size: 1rem;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .resume-section strong {
+            color: #2c3e50;
+        }
+
+        footer {
+            background-color: #1a1a1d;
+            color: #eaeaea;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        footer nav ul {
+            display: flex;
+            justify-content: center;
+            padding: 0;
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        footer nav ul li a {
+            color: #84d7f7;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        footer nav ul li a.active {
+            color: #f7a072;
+        }
+
+        footer nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .resume-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .resume-section h3 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>About Me</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2 style="color: #1605c6;">Katherine McNeil 👩‍💻</h2>
+            <p>A passionate web developer focused on creating engaging, user-friendly experiences through modern web technologies.</p>
+        </div>
+    </section>
+    
+
+    <section class="resume-section">
+        <h2>My Resume 📄</h2>
+
+        <h3>Summary of Qualifications</h3>
+        <ul>
+            <li>Over 10 years of customer service experience, including IT support and web consulting.</li>
+            <li>Strong communication and problem-solving skills.</li>
+            <li>Experienced in troubleshooting IT issues and providing technical support.</li>
+            <li>Proficient in HTML, CSS, JavaScript, and SQL.</li>
+            <li>Certified in Google IT Support and Generative AI.</li>
+        </ul>
+
+        <h3>Education & Certifications</h3>
+        <p><strong>IT Programming Diploma</strong> – Nova Scotia Community College (2024–2026)</p>
+        <ul>
+            <li><strong>Database & SQL:</strong> Designed and managed relational databases.</li>
+            <li><strong>Website Development:</strong> Developed responsive, user-friendly websites.</li>
+            <li><strong>Networking & Security:</strong> Hands-on experience in troubleshooting network issues.</li>
+        </ul>
+        <p><strong>Google IT Support Professional Certificate</strong> (2024)</p>
+        <p><strong>Career Essentials in Generative AI</strong> (2024)</p>
+
+        <h3>Work Experience</h3>
+        <p><strong>IT Support Representative</strong> – Concentrix, Toronto (2021–2022)</p>
+        <ul>
+            <li>Provided daily IT troubleshooting support to over 50 clients.</li>
+            <li>Resolved technical issues related to customer accounts and software tools.</li>
+        </ul>
+
+        <p><strong>Website Consultant</strong> – Web.com, Halifax (2021)</p>
+        <ul>
+            <li>Collaborated with clients to deliver tailored website solutions.</li>
+            <li>Advised clients on website maintenance and ongoing updates.</li>
+        </ul>
+
+        <h3>Technical Skills</h3>
+        <ul>
+            <li><strong>Languages:</strong> HTML, CSS, JavaScript, Java, SQL</li>
+            <li><strong>Tools:</strong> Microsoft 365, Google Workspace, VMware</li>
+            <li><strong>Networking:</strong> TCP/IP, DNS, DHCP, VPN setup</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 <a href="about.html">Katherine McNeil</a> | Passionate about learning and creating ✨</p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <p><a href="#">Back to Top</a></p>
+    </footer>
+</body>
+</html>

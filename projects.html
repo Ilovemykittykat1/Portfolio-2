@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="author" content="Katherine McNeil" />
+  <meta name="description" content="Explore Katherine McNeil's featured projects and work." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Katherine McNeil</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <!-- AOS (Animate On Scroll) -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #2c2c2c;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #2a2a2a;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 4px solid #84d7f7;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #84d7f7;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover,
+    nav a.active {
+      text-decoration: underline;
+      color: #f7a072;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #84d7f7, #50c0e8), url('images/projects-hero.jpg');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: overlay;
+      padding: 60px 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h2 {
+      font-size: 2.3rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 720px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 12px 18px;
+      border-radius: 8px;
+    }
+
+    .content-section {
+      padding: 50px 20px;
+      background-color: #fff;
+      margin: 30px auto;
+      border-radius: 12px;
+      max-width: 1200px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .projects-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .project-card {
+      background-color: #f7f7f7;
+      width: 300px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .project-card h3 {
+      font-size: 1.4rem;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .project-card a {
+      background-color: #84d7f7;
+      color: #1a1a1d;
+      padding: 8px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .project-card a:hover {
+      background-color: #50c0e8;
+    }
+
+    .ebook-section {
+      padding: 50px 20px;
+      background-color: #fff;
+      margin: 30px auto;
+      border-radius: 12px;
+      max-width: 1000px;
+      text-align: center;
+    }
+
+    .ebook-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .ebook-item img {
+      width: 200px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .ebook-item img:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      background-color: #2a2a2a;
+      color: #f0f0f0;
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer a {
+      color: #84d7f7;
+      margin: 0 10px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="animate__animated animate__fadeInDown">Welcome to My Portfolio</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero animate__animated animate__fadeIn">
+    <div class="hero-content" data-aos="fade-down">
+      <h2>Featured Projects 💻✨</h2>
+      <p>Explore some of my favorite projects showcasing my skills in web development and design.</p>
+    </div>
+  </section>
+
+  <section class="content-section" data-aos="fade-up">
+    <h2>My Work</h2>
+    <div class="projects-gallery">
+      <div class="project-card" data-aos="fade-up">
+        <img src="images/jack.png" alt="Jack Skellington Project" />
+        <h3>Jack Skellington Project 🎃</h3>
+        <p>An engaging web animation project featuring Jack Skellington-themed elements and interactive visuals.</p>
+        <a href="https://ilovemykittykat1.github.io/Jack-Skellington-Project/" target="_blank">View Live</a>
+      </div>
+      <div class="project-card" data-aos="fade-up">
+        <img src="images/tarrot.png" alt="Mystic Tarot Reader" />
+        <h3>Mystic Tarot Reader 🔮</h3>
+        <p>A magical tarot reading web application with animated cards, mystical designs, and interactive readings.</p>
+        <a href="https://ilovemykittykat1.github.io/Mystic-Tarot-Reader/" target="_blank">View Live</a>
+      </div>
+      <div class="project-card" data-aos="fade-up">
+        <img src="images/recipe.png" alt="Ivy's Recipe Finder" />
+        <h3>Ivy's Recipe Finder 🍳</h3>
+        <p>An interactive website that helps you find recipes, designed for my daughter. Where she can change or update at any time.</p>
+        <a href="https://ilovemykittykat1.github.io/Ivy-s-Recipe/" target="_blank">View Live</a>
+      </div>
+      <div class="project-card" data-aos="fade-up">
+        <img src="images/cat-timer.png" alt="Cat Timer" />
+        <h3>Katherine's Cat Timer 🐾</h3>
+        <p>A fun cat-themed timer application with a cute cat image and customizable countdown options that meows when the timer goes off.</p>
+        <a href="https://ilovemykittykat1.github.io/Katherine-s-Cat-Timer/" target="_blank">View on GitHub</a>
+      </div>
+      <div class="project-card" data-aos="fade-up">
+        <img src="images/wonderland-graduation.png" alt="Wonderland Graduation" />
+        <h3>Wonderland Graduation 🎓</h3>
+        <p>A playful web project showcasing characters from Wonderland attending a graduation party with interactive features.</p>
+        <a href="https://ilovemykittykat1.github.io/Wonderland-Graduation/" target="_blank">View Live</a>
+      </div>
+      <div class="project-card" data-aos="fade-up">
+        <img src="images/budget-tracker.png" alt="Budget Tracker" />
+        <h3>Budget Tracker 💰</h3>
+        <p>A clean and simple personal finance tracker that helps you monitor income, expenses, and balance using JavaScript magic.</p>
+        <a href="https://ilovemykittykat1.github.io/-Katherine-s-Budget-Tracker/" target="_blank">View Live</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section" data-aos="fade-up">
+    <h2>Custom Domain Website✨🪄</h2>
+    <div class="projects-gallery">
+      <div class="project-card" data-aos="fade-up">
+        <img src="images/star-wand.png" alt="Star Wand Website" />
+        <h3>Custom Domain Website🔮</h3>
+        <p>This enchanted site is fully hosted on <strong>Netlify</strong> and lives on its very own custom domain — which I set up myself! This is more than just a website — it's a spark of independence, creativity, and tech magic all rolled into one. 🌟</p>
+        <a href="https://mousesenchantedadventures.com/" target="_blank">Visit the Magic</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="ebook-section" data-aos="fade-up">
+    <h2>My E-Books 📖</h2>
+    <div class="ebook-container">
+      <div class="ebook-item" data-aos="fade-up">
+        <a href="https://www.amazon.ca/dp/B0DYK81C8F" target="_blank">
+          <img src="images/mouse.png" alt="Cover of Adventures of Mouse" />
+        </a>
+      </div>
+      <div class="ebook-item" data-aos="fade-up">
+        <a href="https://www.amazon.ca/dp/B0DZPBY7RN" target="_blank">
+          <img src="images/ebook (2).png" alt="Cover of A Kitten Named Mouse E-Book" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 <a href="about.html">Katherine McNeil</a> | Web Developer & Creative Thinker ✨</p>
+    <p>
+      <a href="index.html">Home</a> |
+      <a href="projects.html" class="active">Projects</a> |
+      <a href="about.html">About</a> |
+      <a href="contact.html">Contact</a>
+    </p>
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="author" content="Katherine McNeil" />
+  <meta name="description" content="Explore Katherine McNeil's featured projects and work." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Katherine McNeil</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      color: #2c2c2c;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #2a2a2a;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 4px solid #f30404;
+      border: 2px solid #f30404;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #f30404;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #f30404;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover,
+    nav a.active {
+      text-decoration: underline;
+      color: #f40919;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #84d7f7, #50c0e8), url('images/projects-hero.jpg');
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: overlay;
+      padding: 60px 20px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero img {
+      width: 300px;
+      height: auto;
+      border-radius: 10px;
+      border: 4px solid #f30404;
+      margin-top: 20px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .fancy-name {
+      font-size: 2.7rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #ff6f91, #f30404, #ffc75f);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+      animation: pulse 3s infinite ease-in-out;
+      margin-bottom: 10px;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        text-shadow: 0 0 10px rgba(255, 111, 145, 0.6);
+      }
+      50% {
+        transform: scale(1.05);
+        text-shadow: 0 0 20px rgba(241, 7, 18, 0.8);
+      }
+    }
+    .hero p {
+  font-size: 1.1rem;
+  max-width: 720px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 12px 18px;
+  border-radius: 8px;
+  color: #100f0f;
+  border: 3px solid #f30404; /* Add this line to create a red border */
+}
+
+    .section h2,
+    .section a {
+      color: #f30404;
+    }
+
+    .profile {
+      padding: 40px 20px;
+      border: 3px solid #f30404;
+      margin: 30px auto;
+      max-width: 1000px;
+      border-radius: 12px;
+      background-color: #fff;
+    }
+
+    .profile h2 {
+      color: #f30404;
+    }
+
+    .profile p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    footer {
+      background-color: #2a2a2a;
+      color: #f0f0f0;
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer a {
+      color: #f30404;
+      margin: 0 10px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+    <header>
+        <!-- Logo only, no glowing K span -->
+        <div style="margin-bottom: 15px;">
+          <img src="images/logo.png" alt="KM Logo with Blue Glow" style="width: 100px; height: auto;" />
+        </div>
+      
+        <h1 class="animate__animated animate__fadeInDown" style="color: #f30404;">Welcome to My Portfolio</h1>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="projects.html" class="active">Projects</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </header>
+      
+      
+
+      <section class="hero animate__animated animate__fadeIn">
+        <h2 class="fancy-name">Katherine McNeil</h2>
+        <p>Enthusiastic web developer passionate about crafting interactive, user-friendly websites.</p>
+        <div>
+          <img src="images/port.png" alt="Katherine McNeil" style="margin-top: 30px; max-width: 600px; width: 90%; border-radius: 20px; box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);" />
+
+
+
+
+
+        </div>
+      </section>
+      
+
+  <section class="section" data-aos="fade-up">
+    <h2>Explore</h2>
+    <p>
+      Check out my <a href="projects.html">projects</a>,
+      learn <a href="about.html">more about me</a>,
+      or <a href="contact.html">get in touch</a> for collaborations.
+    </p>
+  </section>
+
+  <section class="profile" data-aos="fade-up">
+    <h2>Personal Profile 📄</h2>
+    <p>My educational journey has provided a strong foundation for the program I am currently pursuing. Alongside my academic experience, I have built a strong professional background as a dedicated and enthusiastic customer service professional with over 10 years of experience in various roles, including IT support, web consulting, and fundraising. I take pride in delivering first-class customer service by actively listening to customers' needs and providing effective solutions. My excellent communication skills, both oral and written, have helped me handle customer concerns calmly and respectfully, fostering strong relationships and ensuring repeat business. Proficient in using PC software and wireless technology, I have consistently demonstrated my ability to troubleshoot IT issues efficiently while adapting to new software tools with ease. These experiences have shaped me into a collaborative team player with a strong sense of innovation, empowerment, and commitment to excellence.</p>
+
+    <p>Choosing to pursue the IT Programming course felt like a natural step forward. I have always been drawn to the world of IT, and this program offers me the opportunity to immerse myself in something I am truly passionate about. What excites me most about this career path is the ability to create impactful solutions, overcome complex challenges, and grow alongside an ever-evolving industry. A career in IT offers more than just professional achievements; it provides the fulfillment of contributing to innovative and transformative projects that make a difference.</p>
+
+    <p>Looking ahead, I see a future where I am actively applying my skills and knowledge as a Web Developer. One of my goals is to build my own website to enhance my blogging, which I am currently doing. I envision myself working on projects that challenge me, foster growth, and have a positive impact on others. With time and experience, I hope to become not only a respected professional in my field but also someone who inspires others to pursue their passions and dreams.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 <a href="about.html">Katherine McNeil</a> | Web Developer & Creative Thinker ✨</p>
+    <p>
+      <a href="index.html" class="active">Home</a> |
+      <a href="projects.html">Projects</a> |
+      <a href="about.html">About</a> |
+      <a href="contact.html">Contact</a>
+    </p>
+  </footer>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>

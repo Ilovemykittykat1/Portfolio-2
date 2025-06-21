@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="author" content="Katherine McNeil" />
+  <meta name="description" content="Learn more about Katherine McNeil and her work." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me | Katherine McNeil</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffffff;
+      color: #2c2c2c;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #2a2a2a;
+      padding: 20px;
+      text-align: center;
+      border: 3px solid #f30404;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      animation: fadeInDown 1s ease;
+      color: #f30404;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #f30404;
+      margin: 0 10px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    nav a:hover,
+    nav a.active {
+      text-decoration: underline;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #84d7f7, #50c0e8);
+      background-size: cover;
+      background-position: center;
+      padding: 60px 20px;
+      text-align: center;
+      color: #fff;
+      position: relative;
+    }
+
+    .hero img {
+      margin-top: 30px;
+      max-width: 600px;
+      width: 90%;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .fancy-name {
+      font-size: 2.7rem;
+      font-weight: 700;
+      color: #f30404;
+      animation: pulse 3s infinite ease-in-out;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        text-shadow: 0 0 10px rgba(255, 111, 145, 0.6);
+      }
+      50% {
+        transform: scale(1.05);
+        text-shadow: 0 0 20px rgba(241, 7, 18, 0.8);
+      }
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 720px;
+      margin: 0 auto;
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 12px 18px;
+      border-radius: 8px;
+      color: #151313;
+      border: 3px solid #f30404;
+    }
+
+    .resume-section {
+      max-width: 1000px;
+      background-color: #ffffff;
+      padding: 50px 30px;
+      border-radius: 12px;
+      margin: 40px auto;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      border: 3px solid #f30404;
+    }
+
+    .resume-section h2 {
+      font-size: 2rem;
+      text-align: center;
+      color: #f30404;
+      margin-bottom: 30px;
+      border-bottom: 3px solid #f30404;
+      padding-bottom: 10px;
+    }
+
+    .resume-section h3 {
+      font-size: 1.5rem;
+      color: #f30404;
+      margin-top: 25px;
+      border-left: 4px solid #f30404;
+      padding-left: 10px;
+    }
+
+    .resume-section ul {
+      list-style: disc inside;
+      margin: 15px 0 25px;
+      line-height: 1.7;
+      padding-left: 20px;
+    }
+
+    .resume-section p {
+      font-size: 1rem;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    .resume-section strong {
+      color: #c0392b;
+    }
+
+    footer {
+      background-color: #2a2a2a;
+      color: #f0f0f0;
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer a {
+      color: #f30404;
+      margin: 0 10px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="images/logo.png" alt="KM Logo with Blue Glow" style="width: 100px; height: auto;" />
+    <h1 class="animate__animated animate__fadeInDown">Welcome to My Portfolio</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html" class="active">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero animate__animated animate__fadeIn">
+    <div class="hero-content" data-aos="fade-down">
+      <h2 class="fancy-name">Katherine McNeil</h2>
+      <p>A passionate web developer and storyteller. I've written three children's books and developed a custom interactive website based on the characters—Mouse’s Enchanted Adventures. This site blends animation, design, and storytelling to bring a magical world to life.</p>
+      <img src="images/about.png" alt="Abstract banner art for About page" style="margin-top: 30px; max-width: 600px; width: 90%; height: auto; aspect-ratio: 3 / 2; border-radius: 20px; box-shadow: 0 0 30px rgba(0, 0, 0, 0.15); border: 4px solid #f30404;" />
+    </div>
+  </section>
+
+  <section class="resume-section" data-aos="fade-up">
+    <h2>My Resume 📄</h2>
+
+    <h3>Summary of Qualifications</h3>
+    <ul>
+      <li>Over 10 years of customer service experience, including IT support and web consulting.</li>
+      <li>Strong communication and problem-solving skills.</li>
+      <li>Experienced in troubleshooting IT issues and providing technical support.</li>
+      <li>Proficient in HTML, CSS, JavaScript, and SQL.</li>
+      <li>Certified in Google IT Support, H&R Block Tax Academy, and Generative AI.</li>
+      <li>Author and Illustrator of three published children’s books, built and deployed a full-stack website with interactive features, SEO, custom domain, and online shop.</li>
+    </ul>
+
+    <h3>Education & Certifications</h3>
+    <p><strong>IT Programming Diploma</strong> – Nova Scotia Community College (In Progress)</p>
+    <ul>
+      <li>Data Fundamentals, Professional Practice for IT, Networking & Security, Operating Systems – Linux & Windows, Object-Oriented Programming, Logic & Programming, C Programming, Client-Side Programming, Systems Analysis & Design (UML, Agile), WHMIS Certification, NS OH&S Act, Website Development</li>
+    </ul>
+    <p><strong>H&R Block Tax Academy</strong> – Federal Income Tax Level 1 (NS, Canada)</p>
+    <p><strong>Google IT Support Professional Certificate</strong></p>
+    <p><strong>Career Essentials in Generative AI</strong></p>
+
+    <h3>Technical Skills</h3>
+    <ul>
+      <li><strong>Operating Systems:</strong> Windows, Linux, macOS, Android, iOS</li>
+      <li><strong>Networking:</strong> TCP/IP, DNS, DHCP, Firewall, VPN Configuration, Packet Tracer</li>
+      <li><strong>Software & Tools:</strong> Microsoft 365, Google Workspace, VMware, SQL Databases</li>
+      <li><strong>Programming & Web Development:</strong> HTML, CSS, JavaScript, SQL, Java, C</li>
+      <li><strong>IT Support:</strong> Technical troubleshooting, Systems setup, Agile Project Practices</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 <a href="about.html">Katherine McNeil</a> | Web Developer & Creative Thinker ✨</p>
+    <p>
+      <a href="index.html">Home</a> |
+      <a href="projects.html">Projects</a> |
+      <a href="about.html" class="active">About</a> |
+      <a href="contact.html">Contact</a>
+    </p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>

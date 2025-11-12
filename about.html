@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="author" content="Katherine McNeil" />
+  <meta name="description" content="Professional Resume and Background of Katherine McNeil" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume | Katherine McNeil</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffffff;
+      color: #2c2c2c;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* 🌈 Animated Gradient Header */
+    header {
+      background: linear-gradient(135deg, #ff3366, #84d7f7, #f30404);
+      background-size: 400% 400%;
+      animation: gradientShift 10s ease infinite;
+      padding: 25px;
+      text-align: center;
+      border: 3px solid #ff00cc;
+      box-shadow: 0 0 25px rgba(255,0,204,0.5);
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header img {
+      width: 130px;
+      height: auto;
+      display: block;
+      margin: 0 auto 10px;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      font-weight: bold;
+      text-decoration: none;
+      text-shadow: 0 0 6px rgba(0,0,0,0.3);
+      font-size: 1.1rem;
+    }
+
+    nav a:hover,
+    nav a.active {
+      text-decoration: underline;
+    }
+
+    /* 🎈 Bubble Canvas */
+    .portfolio-box {
+      position: relative;
+      height: 250px;
+      margin-top: 40px;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    #bubbles-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    /* 🧾 Resume Section */
+    .resume-section {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 45px 30px;
+      border-radius: 15px;
+      border: 3px solid #ff00cc;
+      background: #ffffff;
+      box-shadow: 0 0 25px rgba(255,0,204,0.25);
+    }
+
+    .resume-section h2 {
+      color: #ff00cc;
+      text-align: center;
+      border-bottom: 3px solid #ff00cc;
+      padding-bottom: 10px;
+      margin-bottom: 30px;
+      font-size: 2rem;
+    }
+
+    .resume-section h3 {
+      font-size: 1.4rem;
+      color: #ff00cc;
+      margin-top: 30px;
+    }
+
+    .resume-section p,
+    .resume-section ul {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #2c2c2c;
+    }
+
+    .resume-section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .resume-section ul li {
+      margin-bottom: 8px;
+    }
+
+    .resume-section ul li::before {
+      content: "💫";
+      color: #ff00cc;
+      margin-right: 8px;
+    }
+
+    strong {
+      color: #c0392b;
+    }
+
+    /* 📱 Responsive Tweaks */
+    @media (max-width: 900px) {
+      .resume-section {
+        padding: 30px 20px;
+        margin: 40px 15px;
+      }
+
+      .resume-section h2 {
+        font-size: 1.8rem;
+      }
+
+      .resume-section h3 {
+        font-size: 1.2rem;
+      }
+
+      .resume-section p,
+      .resume-section ul {
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+
+      header img {
+        width: 100px;
+      }
+
+      nav a {
+        font-size: 1rem;
+        margin: 0 8px;
+      }
+
+      .portfolio-box {
+        height: 180px;
+        margin-top: 20px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 20px;
+      }
+
+      header img {
+        width: 80px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 5px;
+        font-size: 0.9rem;
+      }
+
+      .resume-section {
+        padding: 20px 15px;
+      }
+
+      .resume-section h2 {
+        font-size: 1.5rem;
+      }
+
+      .resume-section h3 {
+        font-size: 1.1rem;
+      }
+
+      .resume-section p,
+      .resume-section ul {
+        font-size: 0.9rem;
+      }
+
+      .resume-section ul li {
+        line-height: 1.5;
+      }
+
+      footer {
+        padding: 15px;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* 🌈 Animated Gradient Footer */
+    footer {
+      background: linear-gradient(135deg, #ff3366, #84d7f7, #f30404);
+      background-size: 400% 400%;
+      animation: gradientShift 10s ease infinite;
+      color: #fff;
+      text-align: center;
+      padding: 25px;
+      border-top: 3px solid #ff00cc;
+      box-shadow: 0 0 20px rgba(255,0,204,0.5);
+    }
+
+    footer a {
+      color: #ffffff;
+      margin: 0 10px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="images/logo.png" alt="KM Logo" />
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html" class="active">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="portfolio-box">
+    <canvas id="bubbles-canvas"></canvas>
+  </div>
+
+  <section class="resume-section" data-aos="fade-up">
+    <h2>My Resume 📄</h2>
+
+    <h3>Summary of Qualifications</h3>
+    <p>Over 10 years of customer service experience, including IT support and web consulting. Known for strong communication and problem-solving skills, and a passion for developing creative, user-friendly solutions.</p>
+    <p>Proficient in <strong>HTML, CSS, JavaScript, SQL, Java, C, and C++</strong>. Experienced in troubleshooting, technical support, and building complete websites from concept to deployment — including SEO, domain setup, and eCommerce integration.</p>
+    <p>Author and illustrator of three published children’s books, integrating storytelling, illustration, and technology into cohesive interactive experiences.</p>
+
+    <h3>Education & Certifications</h3>
+    <p><strong>IT Programming Diploma</strong> – Nova Scotia Community College (In Progress)</p>
+    <p>Courses include Data Fundamentals, Professional Practice for IT, Networking & Security, Operating Systems (Linux & Windows), Object-Oriented Programming (Java, C++), Logic & Programming, C Programming, Client-Side Programming (HTML, CSS, JavaScript), Systems Analysis & Design (UML, Agile), WHMIS, and NS OH&S Act Certification.</p>
+
+    <p><strong>H&R Block Tax Academy</strong> – Federal Income Tax Level 1 (NS, Canada)</p>
+    <p><strong>Google IT Support Professional Certificate</strong></p>
+    <p><strong>Career Essentials in Generative AI</strong></p>
+
+    <h3>Technical Skills</h3>
+    <ul>
+      <li><strong>Languages:</strong> C, C++, Java, JavaScript, HTML, CSS, SQL</li>
+      <li><strong>Operating Systems:</strong> Windows, Linux, macOS, Android, iOS</li>
+      <li><strong>Networking:</strong> TCP/IP, DNS, DHCP, VPNs, Firewalls, Packet Tracer</li>
+      <li><strong>Tools:</strong> Visual Studio Code, IntelliJ IDEA, MySQL, SQLite, VMware, Microsoft 365, Google Workspace</li>
+      <li><strong>IT Support:</strong> System setup, software troubleshooting, Agile project collaboration</li>
+    </ul>
+
+    <p style="text-align:center; font-weight:bold; margin-top:40px;">© 2025 Katherine McNeil | Web Developer and Creative Thinker ✨</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 <a href="about.html">Katherine McNeil</a> | Web Developer & Creative Thinker ✨</p>
+    <p>
+      <a href="index.html">Home</a> |
+      <a href="projects.html">Projects</a> |
+      <a href="about.html" class="active">About</a> |
+      <a href="contact.html">Contact</a>
+    </p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+
+  <script>
+    const canvas = document.getElementById('bubbles-canvas');
+    const ctx = canvas.getContext('2d');
+    let bubbles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = 250;
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const colors = [
+      'rgba(255,0,204,0.5)',
+      'rgba(255,85,255,0.6)',
+      'rgba(255,51,153,0.6)'
+    ];
+
+    for (let i = 0; i < 50; i++) {
+      bubbles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 15 + 5,
+        s: Math.random() * 0.7 + 0.3,
+        c: colors[Math.floor(Math.random() * colors.length)]
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let b of bubbles) {
+        ctx.beginPath();
+        const gradient = ctx.createRadialGradient(b.x, b.y, 0, b.x, b.y, b.r);
+        gradient.addColorStop(0, 'rgba(255,255,255,0.8)');
+        gradient.addColorStop(1, b.c);
+        ctx.fillStyle = gradient;
+        ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+        ctx.fill();
+        b.y -= b.s;
+        if (b.y < -10) {
+          b.y = canvas.height + 10;
+          b.x = Math.random() * canvas.width;
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  </script>
+</body>
+</html>

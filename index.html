@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="author" content="Katherine McNeil" />
+  <meta name="description" content="Explore Katherine McNeil's featured projects and work." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home | Katherine McNeil</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffffff;
+      color: #2c2c2c;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* 🌈 Unified gradient animation */
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* 🔥 Header */
+    header {
+      background: linear-gradient(135deg, #ff3366, #84d7f7, #f30404);
+      background-size: 400% 400%;
+      animation: gradientShift 10s ease infinite;
+      padding: 20px;
+      text-align: center;
+      border: 3px solid #ff00ff;
+      box-shadow: 0 0 25px rgba(255,0,0,0.4);
+    }
+
+    header img {
+      width: 100px;
+      height: auto;
+      display: block;
+      margin: 0 auto 10px;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 10px;
+      font-weight: bold;
+      text-decoration: none;
+      text-shadow: 0 0 6px rgba(0,0,0,0.3);
+    }
+
+    nav a:hover,
+    nav a.active {
+      text-decoration: underline;
+    }
+
+    /* 🎬 Portfolio video section */
+    .portfolio-box {
+      position: relative;
+      height: 400px;
+      margin-top: 40px;
+      border-radius: 15px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #bubbles-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    video {
+      position: relative;
+      z-index: 2;
+      border-radius: 20px;
+      width: 80%;
+      max-width: 800px;
+      height: auto;
+      box-shadow: 0 0 25px rgba(243,4,4,0.5);
+    }
+
+    @media (max-width: 768px) {
+      video {
+        width: 95%;
+        height: auto;
+      }
+    }
+
+    /* 🌟 Explore Section */
+    .section {
+      max-width: 900px;
+      margin: 40px auto;
+      text-align: center;
+      color: #2c2c2c;
+      padding: 20px;
+    }
+
+    .section h2 {
+      color: #f30404;
+      border-bottom: 3px solid #f30404;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .section a {
+      color: #f30404;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .section a:hover {
+      text-decoration: underline;
+    }
+
+    /* 💖 Animated Button */
+    .slider {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 25px;
+    }
+
+    .order {
+      position: relative;
+      width: 230px;
+      height: 65px;
+      border: none;
+      border-radius: 40px;
+      background: linear-gradient(135deg, #ff3366, #84d7f7, #f30404);
+      background-size: 400% 400%;
+      animation: gradientShift 10s ease infinite;
+      color: #fff;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(243,4,4,0.4);
+      transition: transform 0.3s ease;
+    }
+
+    .order:hover {
+      transform: scale(1.05);
+    }
+
+    .truck {
+      position: absolute;
+      left: 15px;
+      top: 12px;
+      font-size: 1.5rem;
+      transform: translateX(0);
+      transition: transform 1.2s ease;
+    }
+
+    .order.active .truck {
+      transform: translateX(130px);
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff6666;
+      font-size: 1.2rem;
+      animation: heartsTrail 1s ease forwards;
+      pointer-events: none;
+    }
+
+    @keyframes heartsTrail {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-60px) scale(0.6); opacity: 0; }
+    }
+
+    /* 🌀 Carousel */
+    .profile {
+      perspective: 1000px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 40px auto;
+      max-width: 800px;
+    }
+
+    .carousel {
+      width: 45%;
+      height: 180px;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: spin 28s infinite linear;
+    }
+
+    @keyframes spin {
+      from { transform: rotateY(0deg); }
+      to { transform: rotateY(360deg); }
+    }
+
+    .carousel-panel {
+      position: absolute;
+      width: 65%;
+      height: 75%;
+      top: 12%;
+      left: 17%;
+      background: #ffffff;
+      border: 3px solid  #ff00cc;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(243,4,4,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: justify;
+      padding: 15px;
+      color: #2c2c2c;
+      font-size: 0.85rem;
+    }
+
+    .carousel-panel:nth-child(1) { transform: rotateY(0deg) translateZ(300px); }
+    .carousel-panel:nth-child(2) { transform: rotateY(72deg) translateZ(300px); }
+    .carousel-panel:nth-child(3) { transform: rotateY(144deg) translateZ(300px); }
+    .carousel-panel:nth-child(4) { transform: rotateY(216deg) translateZ(300px); }
+    .carousel-panel:nth-child(5) { transform: rotateY(288deg) translateZ(300px); }
+
+    /* 🌈 Matching Gradient Footer */
+    footer {
+      background: linear-gradient(135deg, #ff3366, #84d7f7, #f30404);
+      background-size: 400% 400%;
+      animation: gradientShift 10s ease infinite;
+      color: #fff;
+      text-align: center;
+      padding: 25px;
+      border-top: 3px solid #ff00ff;
+      box-shadow: 0 0 20px rgba(255,0,0,0.4);
+    }
+
+    footer a {
+      color: #fff;
+      margin: 0 10px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* 📱 Mobile Adjustments */
+    @media (max-width: 768px) {
+      .carousel {
+        width: 80%;
+        height: 160px;
+      }
+      .carousel-panel {
+        font-size: 0.8rem;
+        padding: 10px;
+        width: 80%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="images/logo.png" alt="KM Logo" />
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- 🎬 Video section -->
+  <div class="portfolio-box">
+    <canvas id="bubbles-canvas"></canvas>
+    <video autoplay loop muted playsinline>
+      <source src="video.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <!-- 💫 Explore Section -->
+  <section class="section" data-aos="fade-up">
+    <h2>Explore</h2>
+    <p>
+      Check out my <a href="projects.html">projects</a>,
+      learn <a href="about.html">more about me</a>,
+      or <a href="contact.html">get in touch</a> for collaborations.
+    </p>
+
+    <div class="slider" data-aos="fade-up">
+      <button class="order" onclick="window.location.href='projects.html'">
+        <span class="truck">💖</span>
+        <span class="text">View Projects</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- 🌀 Profile Carousel -->
+  <section class="profile" data-aos="fade-up">
+    <div class="carousel">
+      <div class="carousel-panel"><p>I am a passionate IT Programmer and creative problem solver with over a decade of experience in customer service, IT support, and web consulting. I design modern and user friendly websites and interactive experiences that blend logic with imagination.</p></div>
+      <div class="carousel-panel"><p>My journey has evolved from providing technical support to developing full stack web applications, Android apps, and interactive story based websites. I enjoy bringing ideas to life through clean and thoughtful design.</p></div>
+      <div class="carousel-panel"><p>Beyond programming, I am the author and illustrator of Mouse’s Enchanted Adventures, a whimsical children’s book and website that shows how creativity and technology can work beautifully together.</p></div>
+      <div class="carousel-panel"><p>I am completing my IT Programming Diploma at Nova Scotia Community College, where I have strengthened my skills in Java, C++, and JavaScript while gaining real world experience in web development and systems design.</p></div>
+      <div class="carousel-panel"><p>My goal is to continue building digital experiences that inspire, empower, and spark curiosity one creative project at a time.</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 <a href="about.html">Katherine McNeil</a> | Web Developer and Creative Thinker ✨</p>
+    <p>
+      <a href="index.html" class="active">Home</a> |
+      <a href="projects.html">Projects</a> |
+      <a href="about.html">About</a> |
+      <a href="contact.html">Contact</a>
+    </p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+
+  <script>
+    // 💖 Heart trail button
+    const orderBtn = document.querySelector('.order');
+    if (orderBtn) {
+      orderBtn.addEventListener('click', () => {
+        orderBtn.classList.add('active');
+        for (let i = 0; i < 6; i++) {
+          const heart = document.createElement('span');
+          heart.classList.add('heart');
+          heart.textContent = '💖';
+          heart.style.left = `${Math.random() * orderBtn.offsetWidth}px`;
+          heart.style.top = `${Math.random() * orderBtn.offsetHeight - 10}px`;
+          orderBtn.appendChild(heart);
+          setTimeout(() => heart.remove(), 1000 + i * 100);
+        }
+        setTimeout(() => orderBtn.classList.remove('active'), 1600);
+      });
+    }
+
+    // 🌈 Bubble animation behind video
+    const canvas = document.getElementById('bubbles-canvas');
+    const ctx = canvas.getContext('2d');
+    let bubbles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = 400;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const colors = [
+      'rgba(243,4,4,0.45)',
+      'rgba(255,85,170,0.6)',
+      'rgba(100,180,255,0.6)'
+    ];
+
+    for (let i = 0; i < 60; i++) {
+      bubbles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 18 + 6,
+        s: Math.random() * 0.7 + 0.3,
+        c: colors[Math.floor(Math.random() * colors.length)]
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let b of bubbles) {
+        ctx.beginPath();
+        const gradient = ctx.createRadialGradient(b.x, b.y, 0, b.x, b.y, b.r);
+        gradient.addColorStop(0, 'rgba(255,255,255,0.8)');
+        gradient.addColorStop(1, b.c);
+        ctx.fillStyle = gradient;
+        ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+        ctx.fill();
+        b.y -= b.s;
+        b.x += Math.sin(b.y * 0.02) * 0.5;
+        if (b.y < -10) {
+          b.y = canvas.height + 10;
+          b.x = Math.random() * canvas.width;
+        }
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  </script>
+</body>
+</html>

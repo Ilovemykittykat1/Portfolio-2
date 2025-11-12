@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="author" content="Katherine McNeil" />
+  <meta name="description" content="Explore Katherine McNeil's featured projects and work." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Katherine McNeil</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #ffffff;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    a {
+      text-decoration: none;
+      color: #f30404;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #d60000;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(135deg, #ff3366, #84d7f7, #f30404);
+      background-size: 400% 400%;
+      animation: gradientShift 10s ease infinite;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+      border-top: 4px solid #ff00cc;
+      border-bottom: 4px solid #ff00cc;
+      box-shadow: 0 0 25px rgba(255, 0, 204, 0.7);
+      flex-shrink: 0;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header img {
+      display: block;
+      margin: 0 auto 10px auto;
+      width: 110px;
+      height: auto;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      font-weight: bold;
+      text-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+      transition: transform 0.2s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      text-decoration: underline;
+      transform: scale(1.05);
+    }
+
+    /* CONTENT */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: center;
+      width: 100%;
+    }
+
+    .content-section {
+      padding: 60px 20px;
+      background-color: #fff;
+      margin: 40px auto;
+      border-radius: 12px;
+      max-width: 1200px;
+      text-align: center;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      border: 2px solid #ff00cc;
+    }
+
+    .projects-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+      padding: 0 20px;
+    }
+
+    .project-card {
+      background-color: #ffffff;
+      border: 2px solid #ff00cc;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 0 25px rgba(255, 0, 204, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 0 40px rgba(255, 0, 204, 0.8);
+    }
+
+    .project-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.05);
+      filter: brightness(1.1);
+    }
+
+    .project-card h3 {
+      color: #ff00cc;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      color: #444;
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .project-card a {
+      background: linear-gradient(135deg, #ff3366, #84d7f7, #f30404);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: opacity 0.3s ease;
+      box-shadow: 0 0 12px rgba(255,105,180,0.6);
+    }
+
+    .project-card a:hover {
+      opacity: 0.85;
+    }
+
+    /* BOOK SECTION */
+    .book-section {
+      padding: 60px 20px;
+      background-color: #fff;
+      margin: 40px auto;
+      border-radius: 12px;
+      max-width: 800px;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(255, 0, 204, 0.5);
+      border: 2px solid #ff00cc;
+    }
+
+    .book-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .book-item {
+      border: 2px solid #ff00cc;
+      padding: 10px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 0, 204, 0.4);
+    }
+
+    .book-item img {
+      width: 260px;
+      border-radius: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .book-item img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 35px rgba(255, 0, 204, 0.6);
+    }
+
+    /* FOOTER */
+    footer {
+      background: linear-gradient(135deg, #ff3366, #84d7f7, #f30404);
+      background-size: 400% 400%;
+      animation: gradientShift 10s ease infinite;
+      color: #fff;
+      text-align: center;
+      padding: 25px;
+      border-top: 4px solid #ff00cc;
+      border-bottom: 4px solid #ff00cc;
+      box-shadow: 0 0 25px rgba(255, 0, 204, 0.7);
+      width: 100%;
+      flex-shrink: 0;
+    }
+
+    footer a {
+      color: #fff;
+      font-weight: bold;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      header img { width: 90px; }
+      .project-card h3 { font-size: 1.3rem; }
+      .project-card p { font-size: 0.95rem; }
+      .book-item img { width: 200px; }
+    }
+
+    @media (max-width: 600px) {
+      nav a { font-size: 0.9rem; margin: 5px; }
+      .book-item img { width: 170px; }
+      footer { font-size: 0.85rem; padding: 15px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img src="images/logo.png" alt="KM Logo" />
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="content-section" data-aos="fade-up">
+      <h2 style="color: #ff00cc;">My Work</h2>
+      <div class="projects-gallery">
+        <div class="project-card" data-aos="zoom-in">
+          <img src="images/jack.png" alt="Jack Skellington Project" />
+          <h3>Jack Skellington Project 🎃</h3>
+          <p>An engaging web animation project featuring Jack Skellington-themed elements and interactive visuals.</p>
+          <a href="https://ilovemykittykat1.github.io/Jack-Skellington-Project/" target="_blank">View Live</a>
+        </div>
+
+        <div class="project-card" data-aos="zoom-in">
+          <img src="images/tarrot.png" alt="Mystic Tarot Reader" />
+          <h3>Mystic Tarot Reader 🔮</h3>
+          <p>A magical tarot reading web app with animated cards, mystical design, and interactive readings.</p>
+          <a href="https://ilovemykittykat1.github.io/Mystic-Tarot-Reader/" target="_blank">View Live</a>
+        </div>
+
+        <div class="project-card" data-aos="zoom-in">
+          <img src="images/recipe.png" alt="Ivy's Recipe Finder" />
+          <h3>Ivy's Recipe Finder 🍳</h3>
+          <p>An interactive recipe website designed for my daughter that she can update any time.</p>
+          <a href="https://ilovemykittykat1.github.io/Ivy-s-Recipe/" target="_blank">View Live</a>
+        </div>
+
+        <div class="project-card" data-aos="zoom-in">
+          <img src="images/cat-timer.png" alt="Katherine's Cat Timer" />
+          <h3>Katherine's Cat Timer 🐾</h3>
+          <p>A fun cat-themed timer app that meows when the countdown ends.</p>
+          <a href="https://ilovemykittykat1.github.io/Katherine-s-Cat-Timer/" target="_blank">View on GitHub</a>
+        </div>
+
+        <div class="project-card" data-aos="zoom-in">
+          <img src="images/wonderland-graduation.png" alt="Wonderland Graduation" />
+          <h3>Wonderland Graduation 🎓</h3>
+          <p>A playful website project featuring Wonderland characters at a graduation party.</p>
+          <a href="https://ilovemykittykat1.github.io/Wonderland-Graduation/" target="_blank">View Live</a>
+        </div>
+
+        <div class="project-card" data-aos="zoom-in">
+          <img src="images/budget-tracker.png" alt="Budget Tracker" />
+          <h3>Budget Tracker 💰</h3>
+          <p>A clean finance tracker to manage your income, expenses, and balance using JavaScript.</p>
+          <a href="https://ilovemykittykat1.github.io/-Katherine-s-Budget-Tracker/" target="_blank">View Live</a>
+        </div>
+
+       <div class="project-card" data-aos="zoom-in" 
+     style="grid-column: 1 / -1; justify-self: center; max-width: 800px; margin: 0 auto;">
+
+  <img src="images/star-wand.png" alt="Custom Domain Website" />
+  <h3>Custom Domain Website 🔮</h3>
+  <p>A site hosted on Netlify with its very own domain — a blend of tech and creativity.</p>
+  <a href="https://mousesenchantedadventures.com/" target="_blank">Visit the Magic</a>
+</div>
+
+      </div>
+    </section>
+
+    <section class="book-section" data-aos="fade-up">
+      <h2 style="color: #ff00cc;">My Books 📚</h2>
+      <div class="book-container">
+        <div class="book-item" data-aos="fade-up">
+          <a href="https://www.amazon.ca/dp/B0DZT81M7F" target="_blank">
+            <img src="images/book1.png" alt="Mouse's Enchanted Adventures Paperback" />
+          </a>
+        </div>
+        <div class="book-item" data-aos="fade-up">
+          <a href="https://www.amazon.ca/dp/B0FCBZ5W79" target="_blank">
+            <img src="images/book2.png" alt="A Kitten Named Mouse Paperback" />
+          </a>
+        </div>
+        <div class="book-item" data-aos="fade-up">
+          <a href="https://www.amazon.ca/dp/B0FD9HNJZL" target="_blank">
+            <img src="images/book3.png" alt="Mouse's Halloween Adventure Paperback" />
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 <a href="about.html">Katherine McNeil</a> | Web Developer & Creative Thinker ✨</p>
+    <p>
+      <a href="index.html">Home</a> |
+      <a href="projects.html" class="active">Projects</a> |
+      <a href="about.html">About</a> |
+      <a href="contact.html">Contact</a>
+    </p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>

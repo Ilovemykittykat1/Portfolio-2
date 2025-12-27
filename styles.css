@@ -1,0 +1,216 @@
+/* Updated Global Styles */
+.ebook-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.hero p {
+    color: black !important; /* Force text color to black */
+  }
+  
+  
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    padding-bottom: 60px;
+}
+
+a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+    color: #f30404;
+}
+
+a:hover {
+    color: #d60000;
+}
+
+/* Header */
+header {
+    background-color: #2a2a2a;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #f30404;
+}
+
+header nav a {
+    color: #f30404;
+    margin: 0 10px;
+}
+
+header nav a:hover {
+    color: #d60000;
+}
+
+header nav a[style*="font-weight: bold"] {
+    color: #f30404;
+}
+
+/* General Headings */
+h1, h2, h3 {
+    color: #1806dc;
+    margin-bottom: 15px;
+}
+
+/* Headings in Dark Sections */
+section[style*="background-color: #2a2a2a"] h1,
+section[style*="background-color: #2a2a2a"] h2,
+section[style*="background-color: #2a2a2a"] h3,
+header h1 {
+    color: #f30404 !important;
+}
+
+/* Sections */
+section {
+    padding: 40px 20px;
+}
+
+section h2 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+section p {
+    font-size: 1.1rem;
+    text-align: center;
+    max-width: 700px;
+    margin: 15px auto;
+}
+
+/* About Me Hero Section */
+/* Images */
+img {
+    max-width: 100%;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    display: block;
+}
+
+section[style*="background-image"] h2 {
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+/* Skills & Certifications */
+ul {
+    max-width: 700px;
+    margin: 20px auto;
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+ul li {
+    margin-bottom: 8px;
+}
+
+ul.columns {
+    columns: 2;
+    column-gap: 40px;
+}
+
+ul.columns li {
+    break-inside: avoid;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Visit My E-Book Section */
+section:has(a[href*="gumroad"]) {
+    background-color: #e0e0e0;
+}
+
+section:has(a[href*="gumroad"]) a {
+    color: #f28482;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+section:has(a[href*="gumroad"]) a:hover {
+    color: #c75b57;
+}
+
+/* Footer */
+footer {
+    background-color: #2a2a2a;
+    color: #f0f0f0;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.95rem;
+    margin-top: 20px;
+    border-top: 3px solid #f7a072;
+}
+
+footer a {
+    color: #f30404;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    color: #d60000;
+}
+
+footer a[style*="font-weight: bold"] {
+    color: #f30404;
+}
+
+footer p {
+    margin: 10px 0;
+}
+
+footer p:first-child {
+    font-size: 1rem;
+}
+
+footer p:first-child a {
+    font-weight: bold;
+}
+
+footer p:last-child {
+    font-size: 0.95rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    ul.columns {
+        columns: 1;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    section h2 {
+        font-size: 1.6rem;
+    }
+
+    section p {
+        font-size: 1rem;
+    }
+}

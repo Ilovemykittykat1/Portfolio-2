@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="author" content="Katherine McNeil" />
+  <meta name="description" content="Resume and Background of Katherine McNeil" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Katherine McNeil</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0c0c0c;
+      color: #e5e5e5;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: linear-gradient(135deg, #0c0c0c, #8a0000, #0c0c0c);
+      background-size: 400% 400%;
+      animation: gradientShift 12s ease infinite;
+      padding: 20px;
+      border-bottom: 3px solid #8a0000;
+      box-shadow: 0 0 30px rgba(138,0,0,0.8);
+      position: relative;
+      text-align: center;
+      z-index: 5;
+    }
+
+    header img {
+      width: 120px;
+      margin: 0 auto 10px;
+      display: block;
+    }
+
+    /* ===== PROFILE BUBBLE ===== */
+    .profile-bubble {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      pointer-events: none; /* FIX */
+    }
+
+    .profile-bubble img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #8a0000;
+      box-shadow: 0 0 25px rgba(138,0,0,0.9);
+      background: #111;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    nav a {
+      color: #e5e5e5;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #ff4d4d;
+      text-decoration: underline;
+    }
+
+    /* ===== HAMBURGER ===== */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      position: absolute;
+      right: 20px;
+      top: 32px;
+      z-index: 10; /* FIX */
+    }
+
+    .hamburger span {
+      width: 28px;
+      height: 3px;
+      background: #ff4d4d;
+      border-radius: 2px;
+    }
+
+    /* ===== MOBILE NAV ===== */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background: #111;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 20px 0;
+        border-bottom: 3px solid #8a0000;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* ===== BUBBLES ===== */
+    .portfolio-box {
+      position: relative;
+      height: 250px;
+      margin-top: 30px;
+      overflow: hidden;
+    }
+
+    #bubbles-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ===== RESUME ===== */
+    .resume-section {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 45px 30px;
+      border-radius: 15px;
+      border: 2px solid #8a0000;
+      background: #111;
+      box-shadow: 0 0 30px rgba(138,0,0,0.6);
+    }
+
+    .resume-section h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      background: linear-gradient(90deg, #ff4d4d, #b30000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .resume-buttons {
+      display: flex;
+      justify-content: center;
+      margin: 30px 0;
+    }
+
+    .resume-btn {
+      background: #8a0000;
+      color: #fff;
+      padding: 14px 26px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 0 18px rgba(138,0,0,0.8);
+    }
+
+    .resume-section h3 {
+      color: #ff4d4d;
+      border-bottom: 2px solid #8a0000;
+      margin-top: 35px;
+      padding-bottom: 6px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul li::before {
+      content: "🩸 ";
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #111;
+      text-align: center;
+      padding: 30px 15px;
+      border-top: 3px solid #8a0000;
+      box-shadow: 0 0 20px rgba(138,0,0,0.8);
+    }
+
+    footer a {
+      color: #ff4d4d;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="images/logo.png" alt="KM Logo">
+
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav id="nav">
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="about.html" class="active">About</a>
+    <a href="certificates.html">Certificates</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="portfolio-box">
+  <canvas id="bubbles-canvas"></canvas>
+  <div class="profile-bubble">
+    <img src="images/me.png" alt="Katherine McNeil">
+  </div>
+</div>
+
+<section class="resume-section" data-aos="fade-up">
+  <h1>About Me & Résumé</h1>
+
+  <div class="resume-buttons">
+    <a href="documents/Katherine_McNeil_Resume.pdf" download class="resume-btn">
+      ⬇ Download Resume (PDF)
+    </a>
+  </div>
+
+  <h3>Summary of Qualifications</h3>
+  <p>Over 10 years of customer service experience, including IT support and web consulting. Known for strong communication and problem-solving skills and a passion for developing creative, user-friendly solutions.</p>
+
+  <p>Proficient in <strong>HTML, CSS, JavaScript, SQL, Java, C, C++</strong>. Experienced in troubleshooting, technical support, and building complete websites from concept to deployment including SEO, domain setup, and eCommerce integration.</p>
+
+  <p>Author and illustrator of three published children's books, combining storytelling, illustration, and technology into creative digital experiences.</p>
+
+  <h3>Education & Certifications</h3>
+  <p><strong>IT Programming Diploma</strong> – Nova Scotia Community College (In Progress)</p>
+
+  <p>Courses include Networking and Security, Data Fundamentals, Client Side Programming, C Programming, Logic and Programming, C++, Java, Systems Analysis and Design, Operating Systems, WHMIS, and NS OH and S Act Certification.</p>
+
+  <p><strong>H and R Block Tax Academy – Federal Income Tax Level 1</strong></p>
+  <p><strong>Google IT Support Professional Certificate</strong></p>
+  <p><strong>Career Essentials in Generative AI</strong></p>
+
+  <h3>Career Goals</h3>
+  <ul>
+    <li>Finish my IT Programming diploma with strong grades and a solid portfolio.</li>
+    <li>Land a remote entry level IT or developer role.</li>
+    <li>Publish more books and expand Mouse’s Enchanted Adventures.</li>
+    <li>Become a full stack developer.</li>
+    <li>Build and launch a SaaS product.</li>
+    <li>Create a complete interactive kids world.</li>
+  </ul>
+
+  <h3>Skills Inventory</h3>
+  <ul>
+    <li><strong>Languages:</strong> C, C++, Java, JavaScript, HTML, CSS, SQL</li>
+    <li><strong>Operating Systems:</strong> Windows, Linux, macOS, Android, iOS</li>
+    <li><strong>Networking:</strong> TCP IP, DNS, DHCP, VPNs, Firewalls</li>
+    <li><strong>Tools:</strong> VS Code, IntelliJ IDEA, MySQL, SQLite, VMware</li>
+    <li><strong>Technical Support:</strong> Troubleshooting and diagnostics</li>
+  </ul>
+
+  <h3>Learning Reflection</h3>
+  <p>I’ve grown a lot since starting IT. I’ve built apps, fixed bugs that almost sent my laptop into orbit, created full websites, and pushed myself through challenges I didn’t think I could handle.</p>
+</section>
+
+<footer class="site-footer">
+  <p>© 2025 Katherine McNeil</p>
+  <p class="footer-links">
+    <a href="index.html">Home</a> |
+    <a href="projects.html">Projects</a> |
+    <a href="about.html">About</a> |
+    <a href="certificates.html">Certificates</a> |
+    <a href="contact.html">Contact</a>
+  </p>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const nav = document.getElementById("nav");
+
+  hamburger.addEventListener("click", () => {
+    nav.classList.toggle("show");
+  });
+</script>
+
+<script>
+  const canvas = document.getElementById('bubbles-canvas');
+  const ctx = canvas.getContext('2d');
+  let bubbles = [];
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = 400;
+  }
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  const colors = ['rgba(138,0,0,0.6)','rgba(255,0,0,0.4)'];
+
+  for (let i = 0; i < 60; i++) {
+    bubbles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 18 + 6,
+      s: Math.random() * 0.7 + 0.3,
+      c: colors[Math.floor(Math.random() * colors.length)]
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    for (let b of bubbles) {
+      ctx.beginPath();
+      ctx.fillStyle = b.c;
+      ctx.arc(b.x,b.y,b.r,0,Math.PI*2);
+      ctx.fill();
+      b.y -= b.s;
+      if (b.y < -10) {
+        b.y = canvas.height + 10;
+        b.x = Math.random() * canvas.width;
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+</script>
+
+</body>
+</html>

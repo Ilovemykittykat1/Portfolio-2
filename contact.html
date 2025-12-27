@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Katherine McNeil">
+  <meta name="description" content="Contact Katherine McNeil – Web Developer & Creative Thinker">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Katherine McNeil</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0c0c0c;
+      color: #e5e5e5;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: linear-gradient(135deg, #0c0c0c, #8a0000, #0c0c0c);
+      background-size: 400% 400%;
+      animation: gradientShift 12s ease infinite;
+      padding: 20px;
+      border-bottom: 3px solid #8a0000;
+      box-shadow: 0 0 30px rgba(138,0,0,0.8);
+      position: relative;
+      text-align: center;
+      z-index: 50;
+    }
+
+    header img {
+      width: 100px;
+      margin: 0 auto 10px;
+      display: block;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #e5e5e5;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #ff4d4d;
+      text-decoration: underline;
+    }
+
+    /* ===== HAMBURGER ===== */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      position: absolute;
+      right: 20px;
+      top: 32px;
+      z-index: 100;
+    }
+
+    .hamburger span {
+      width: 28px;
+      height: 3px;
+      background: #ff4d4d;
+      border-radius: 2px;
+    }
+
+    /* ===== MOBILE NAV ===== */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background: #111;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 20px 0;
+        border-bottom: 3px solid #8a0000;
+        z-index: 90;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* ===== BUBBLES ===== */
+    .portfolio-box {
+      position: relative;
+      height: 250px;
+      overflow: hidden;
+      margin: 30px auto;
+      z-index: 1;
+    }
+
+    #bubbles-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    /* ===== CONTACT SECTION ===== */
+    .contact-section {
+      padding: 60px 20px;
+      background: #111;
+      text-align: center;
+      border: 2px solid #8a0000;
+      margin: 40px auto;
+      max-width: 700px;
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(138,0,0,0.6);
+      position: relative;
+      z-index: 5;
+    }
+
+    .contact-section p {
+      font-size: 1.1rem;
+      color: #d0d0d0;
+      margin-bottom: 30px;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+      background: #0c0c0c;
+      padding: 25px;
+      border-radius: 12px;
+      border: 2px solid #8a0000;
+      box-shadow: 0 0 20px rgba(138,0,0,0.6);
+    }
+
+    form label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #ff4d4d;
+    }
+
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #444;
+      background: #111;
+      color: #e5e5e5;
+      font-size: 1rem;
+    }
+
+    textarea {
+      border: 2px solid #8a0000;
+      resize: vertical;
+    }
+
+    textarea:focus,
+    input:focus {
+      outline: none;
+      box-shadow: 0 0 15px rgba(255,0,0,0.6);
+    }
+
+    button {
+      background: #8a0000;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+      width: 100%;
+      box-shadow: 0 0 18px rgba(138,0,0,0.8);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #111;
+      color: #e5e5e5;
+      text-align: center;
+      padding: 30px 15px;
+      border-top: 3px solid #8a0000;
+      box-shadow: 0 0 20px rgba(138,0,0,0.8);
+    }
+
+    footer a {
+      color: #ff4444;
+      font-weight: bold;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="images/logo.png" alt="KM Logo">
+
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav id="nav">
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="about.html">About</a>
+    <a href="certificates.html">Certificates</a>
+    <a href="contact.html" class="active">Contact</a>
+  </nav>
+</header>
+
+<div class="portfolio-box">
+  <canvas id="bubbles-canvas"></canvas>
+</div>
+
+<section class="contact-section" data-aos="fade-up">
+  <p>Please complete the form below, and I will respond to your inquiry as soon as possible.</p>
+
+  <form action="https://formspree.io/f/xrbewkar" method="POST">
+    <label>
+      Your email:
+      <input type="email" name="email" required>
+    </label>
+
+    <label>
+      Your message:
+      <textarea name="message" rows="5" required></textarea>
+    </label>
+
+    <button type="submit">Send</button>
+  </form>
+</section>
+<footer class="site-footer">
+  <p>© 2025 Katherine McNeil</p>
+  <p class="footer-links">
+    <a href="index.html">Home</a> |
+    <a href="projects.html">Projects</a> |
+    <a href="about.html">About</a> |
+    <a href="certificates.html">Certificates</a> |
+    <a href="contact.html">Contact</a>
+  </p>
+</footer>
+
+
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const nav = document.getElementById("nav");
+
+  hamburger.addEventListener("click", () => {
+    nav.classList.toggle("show");
+  });
+</script>
+
+<script>
+  const canvas = document.getElementById('bubbles-canvas');
+  const ctx = canvas.getContext('2d');
+  let bubbles = [];
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = 400;
+  }
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  const colors = ['rgba(138,0,0,0.6)','rgba(255,0,0,0.4)'];
+
+  for (let i = 0; i < 60; i++) {
+    bubbles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 18 + 6,
+      s: Math.random() * 0.7 + 0.3,
+      c: colors[Math.floor(Math.random() * colors.length)]
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    for (let b of bubbles) {
+      ctx.beginPath();
+      ctx.fillStyle = b.c;
+      ctx.arc(b.x,b.y,b.r,0,Math.PI*2);
+      ctx.fill();
+      b.y -= b.s;
+      if (b.y < -10) {
+        b.y = canvas.height + 10;
+        b.x = Math.random() * canvas.width;
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+</script>
+
+</body>
+</html>

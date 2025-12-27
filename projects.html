@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="author" content="Katherine McNeil" />
+  <meta name="description" content="Explore Katherine McNeil's featured projects and work." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Katherine McNeil</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0c0c0c;
+      color: #e5e5e5;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: linear-gradient(135deg, #0c0c0c, #8a0000, #0c0c0c);
+      background-size: 400% 400%;
+      animation: gradientShift 12s ease infinite;
+      text-align: center;
+      padding: 20px;
+      border-bottom: 3px solid #8a0000;
+      box-shadow: 0 0 30px rgba(138,0,0,0.8);
+      position: relative;
+      z-index: 50; /* FIX */
+    }
+
+    header img {
+      width: 110px;
+      margin: 0 auto 10px;
+      display: block;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #e5e5e5;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #ff4d4d;
+      text-decoration: underline;
+    }
+
+    /* ===== HAMBURGER ===== */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      position: absolute;
+      right: 20px;
+      top: 32px;
+      z-index: 100; /* FIX */
+    }
+
+    .hamburger span {
+      width: 28px;
+      height: 3px;
+      background: #ff4d4d;
+      border-radius: 2px;
+    }
+
+    /* ===== MOBILE NAV ===== */
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background: #111;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        padding: 20px 0;
+        border-bottom: 3px solid #8a0000;
+        z-index: 200; /* FIX */
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* ===== BUBBLES ===== */
+    .portfolio-box {
+      position: relative;
+      height: 250px;
+      margin-top: 30px;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    #bubbles-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none; /* FIX */
+    }
+
+    /* ===== SECTIONS ===== */
+    .content-section {
+      background: #111;
+      margin: 50px auto;
+      padding: 50px 30px;
+      max-width: 1200px;
+      border-radius: 15px;
+      border: 2px solid #8a0000;
+      box-shadow: 0 0 30px rgba(138,0,0,0.6);
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 2.4rem;
+      margin-bottom: 30px;
+      background: linear-gradient(90deg, #ff4d4d, #b30000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ===== PROJECTS ===== */
+    .projects-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 35px;
+      margin-top: 40px;
+    }
+
+    .project-card {
+      background: #0c0c0c;
+      border: 2px solid #8a0000;
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 0 25px rgba(138,0,0,0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 45px rgba(255,0,0,0.8);
+    }
+
+    .project-card img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 18px;
+    }
+
+    .project-card h3 {
+      color: #ff4d4d;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      color: #d0d0d0;
+      margin-bottom: 18px;
+    }
+
+    .project-card a {
+      display: inline-block;
+      background: #8a0000;
+      color: #fff;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 0 15px rgba(138,0,0,0.7);
+    }
+
+    .project-card a:hover {
+      background: #b30000;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #111;
+      color: #e5e5e5;
+      text-align: center;
+      padding: 30px 15px;
+      border-top: 3px solid #8a0000;
+      box-shadow: 0 0 20px rgba(138,0,0,0.8);
+    }
+
+    footer a {
+      color: #ff4444;
+      font-weight: bold;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .portfolio-box { height: 180px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="images/logo.png" alt="KM Logo">
+
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav id="nav">
+    <a href="index.html">Home</a>
+    <a href="projects.html" class="active">Projects</a>
+    <a href="about.html">About</a>
+    <a href="certificates.html">Certificates</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="portfolio-box">
+  <canvas id="bubbles-canvas"></canvas>
+</div>
+<section class="content-section" data-aos="fade-up">
+  <h2>My Work</h2>
+
+  <div class="projects-gallery">
+
+    <!-- PROJECTS UNCHANGED -->
+    <!-- Jack -->
+    <div class="project-card">
+      <img src="images/jack.png">
+      <h3>Open Lane</h3>
+      <p><p>
+  A consulting company website designed to present services, process, and brand messaging.
+</p>
+</p>
+      <a href="https://ilovemykittykat1.github.io/Consulting/index.html" target="_blank">View Live</a>
+    </div>
+
+    <!-- Tarot -->
+    <div class="project-card">
+      <img src="images/tarrot.png">
+      <h3>Mystic Tarot Reader 🔮</h3>
+      <p>A magical tarot reading web app with animated cards.</p>
+      <a href="https://ilovemykittykat1.github.io/Mystic-Tarot-Reader/" target="_blank">View Live</a>
+    </div>
+
+    <!-- Recipe -->
+    <div class="project-card">
+      <img src="images/recipe.png">
+      <h3>Ivy's Recipe Finder 🍳</h3>
+      <p>An interactive recipe website designed for my daughter.</p>
+      <a href="https://ilovemykittykat1.github.io/Ivy-s-Recipe/" target="_blank">View Live</a>
+    </div>
+
+    <!-- Cat Timer -->
+    <div class="project-card">
+      <img src="images/cat-timer.png">
+      <h3>Katherine's Cat Timer 🐾</h3>
+      <p>A fun cat-themed timer app.</p>
+      <a href="https://ilovemykittykat1.github.io/Katherine-s-Cat-Timer/" target="_blank">View Live</a>
+    </div>
+
+    <!-- Wonderland -->
+    <div class="project-card">
+      <img src="images/wonderland-graduation.png">
+      <h3>Wonderland Graduation 🎓</h3>
+      <p>A playful Wonderland-themed graduation site.</p>
+      <a href="https://ilovemykittykat1.github.io/Wonderland-Graduation/" target="_blank">View Live</a>
+    </div>
+
+    <!-- Budget -->
+    <div class="project-card">
+      <img src="images/budget-tracker.png">
+      <h3>Budget Tracker 💰</h3>
+      <p>A clean JavaScript budget tracker.</p>
+      <a href="https://ilovemykittykat1.github.io/-Katherine-s-Budget-Tracker/" target="_blank">View Live</a>
+    </div>
+     <!-- Sleep & Sassy Style -->
+<div class="project-card">
+  <img src="images/sleep-sassy-style.png" alt="Sleep & Sassy Style project preview">
+  <h3>Sleep & Sassy Style 💄</h3>
+  <p>
+    A stylish personal budget and planning project with a bold, modern design focus.
+  </p>
+  <a href="https://ilovemykittykat1.github.io/Managing-Your-Personal-Budget/" target="_blank">
+    View Live
+  </a>
+</div>
+<!-- React Christmas Music -->
+<div class="project-card">
+  <img src="images/react.png" alt="React Christmas Music Login project preview">
+  <h3>Christmas Music Login (React) 🎄🎵</h3>
+  <p>
+    A festive React login interface built as an introduction to React components and styling.
+  </p>
+  <a href="https://ilovemykittykat1.github.io/my-first-react/" target="_blank">
+    View Live
+  </a>
+</div>
+<!-- First Year Down -->
+<div class="project-card">
+  <img src="images/first.png" alt="First Year Down project preview">
+  <h3>First Year Down 🎉</h3>
+  <p>
+    A celebratory web project marking the completion of my first year in IT Programming.
+  </p>
+  <a href="https://ilovemykittykat1.github.io/First-Year-Down/" target="_blank">
+    View Live
+  </a>
+</div>
+
+<!-- ================= MY BOOKS ================= -->
+
+<div class="project-card">
+  <img src="images/book1.png" alt="Mouse's Enchanted Adventures book cover">
+  <h3>Mouse’s Enchanted Adventures 📘</h3>
+  <p>Magical children’s fantasy featuring Mouse and Bat.</p>
+  <a href="https://www.amazon.ca/dp/B0FH5MNM9P" target="_blank">
+    View on Amazon
+  </a>
+</div>
+
+<div class="project-card">
+  <img src="images/book2.png" alt="Buried Beneath the Fog book cover">
+  <h3>Buried Beneath the Fog 🌫️</h3>
+  <p>A spooky fog-filled adventure of Mouse and Bat.</p>
+  <a href="https://www.amazon.ca/dp/B0F4DQ3FCD" target="_blank">
+    View on Amazon
+  </a>
+</div>
+
+<div class="project-card">
+  <img src="images/book3.png" alt="Katherina's Spell Book cover">
+  <h3>Katherina’s Spell Book ✨</h3>
+  <p>A whimsical spell book for magical fun.</p>
+  <a href="https://www.amazon.ca/dp/B0FD9HNJZL" target="_blank">
+    View on Amazon
+  </a>
+</div>
+
+
+</div>
+
+    <!-- Domain -->
+    <div class="project-card" style="grid-column:1/-1;max-width:800px;margin:0 auto;">
+      <img src="images/star-wand.png">
+      <h3>Custom Domain Website 🔮</h3>
+      <p>A Netlify-hosted site with a custom domain.</p>
+      <a href="https://mousesenchantedadventures.com/" target="_blank">Visit the Magic</a>
+    </div>
+   
+
+
+  </div>
+</section>
+<footer class="site-footer">
+  <p>© 2025 Katherine McNeil</p>
+  <p class="footer-links">
+    <a href="index.html">Home</a> |
+    <a href="projects.html">Projects</a> |
+    <a href="about.html">About</a> |
+    <a href="certificates.html">Certificates</a> |
+    <a href="contact.html">Contact</a>
+  </p>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+
+<!-- ✅ NAV TOGGLE -->
+<script>
+  const hamburger = document.getElementById("hamburger");
+  const nav = document.getElementById("nav");
+
+  hamburger.addEventListener("click", () => {
+    nav.classList.toggle("show");
+  });
+</script>
+
+<!-- 🫧 BUBBLES (UNTOUCHED) -->
+<script>
+  const canvas = document.getElementById('bubbles-canvas');
+  const ctx = canvas.getContext('2d');
+  let bubbles = [];
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = 400;
+  }
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  const colors = ['rgba(138,0,0,0.6)','rgba(255,0,0,0.4)'];
+
+  for (let i = 0; i < 60; i++) {
+    bubbles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 18 + 6,
+      s: Math.random() * 0.7 + 0.3,
+      c: colors[Math.floor(Math.random() * colors.length)]
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    for (let b of bubbles) {
+      ctx.beginPath();
+      ctx.fillStyle = b.c;
+      ctx.arc(b.x,b.y,b.r,0,Math.PI*2);
+      ctx.fill();
+      b.y -= b.s;
+      if (b.y < -10) {
+        b.y = canvas.height + 10;
+        b.x = Math.random() * canvas.width;
+      }
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+</script>
+
+</body>
+</html>

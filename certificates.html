@@ -7,389 +7,271 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Certificates | Katherine McNeil</title>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@400;500;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --orange: #ff6d00;
+      --orange-light: #ff9e40;
+      --cream: #fff8f0;
+      --white: #ffffff;
+      --charcoal: #1a1714;
+      --text-dark: #2e2418;
+      --text-mid: #6b5b4a;
+      --grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0c0c0c;
-      color: #e5e5e5;
-      margin: 0;
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.6;
       overflow-x: hidden;
     }
 
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    body::after {
+      content: ''; position: fixed; inset: 0; background: var(--grain);
+      pointer-events: none; z-index: 9999;
     }
 
-    /* ===== HEADER ===== */
-    header {
-      background: linear-gradient(135deg, #0c0c0c, #8a0000, #0c0c0c);
-      background-size: 400% 400%;
-      animation: gradientShift 12s ease infinite;
-      padding: 20px;
-      border-bottom: 3px solid #8a0000;
-      box-shadow: 0 0 30px rgba(138,0,0,0.8);
-      position: relative;
-      text-align: center;
-      z-index: 5;
+    /* ======= NAVIGATION ======= */
+    .site-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 18px 40px; display: flex; justify-content: space-between; align-items: center;
+      background: rgba(255, 248, 240, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 2px solid rgba(255, 109, 0, 0.15);
     }
 
-    header img {
-      width: 100px;
-      margin: 0 auto 10px;
-      display: block;
-    }
+    .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.5rem; color: var(--orange); text-decoration: none; }
+    .nav-logo span { color: var(--text-dark); }
 
-    /* ===== NAV ===== */
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a { font-weight: 500; font-size: 0.95rem; color: var(--text-dark); text-decoration: none; transition: 0.3s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--orange); }
 
-    nav a {
-      color: #e5e5e5;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: #ff4d4d;
-      text-decoration: underline;
-    }
-
-    /* ===== HAMBURGER ===== */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      position: absolute;
-      right: 20px;
-      top: 32px;
-      z-index: 10;
-    }
-
-    .hamburger span {
-      width: 28px;
-      height: 3px;
-      background: #ff4d4d;
-      border-radius: 2px;
-    }
-
-    /* ===== MOBILE NAV ===== */
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-        flex-direction: column;
-        background: #111;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        padding: 20px 0;
-        border-bottom: 3px solid #8a0000;
-      }
-
-      nav.show {
-        display: flex;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-    }
-
-    /* ===== BUBBLES ===== */
-    .portfolio-box {
-      position: relative;
-      height: 250px;
-      margin-top: 30px;
-      overflow: hidden;
-    }
-
-    #bubbles-canvas {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-    }
-
-    /* ===== SCROLL BANNER ===== */
-  
-   /* ===== SCROLL BANNER (FIXED) ===== */
-.scroll-banner {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.scroll-banner img {
-  width: 100%;
-  max-width: 1400px;
-  height: auto;
-  max-height: 360px;
-  object-fit: contain;
-  display: block;
-}
-
-
-
-    @media (max-width: 1024px) {
-      .scroll-banner img {
-        max-width: 900px;
-      }
-    }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; border: none; background: none; }
+    .hamburger span { width: 26px; height: 2.5px; background: var(--orange); border-radius: 2px; }
 
     @media (max-width: 768px) {
-      .scroll-banner img {
-        max-width: 90%;
-        padding: 0 20px;
-      }
-      .portfolio-box {
-        height: 180px;
-      }
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); flex-direction: column; padding: 20px; text-align: center; border-bottom: 3px solid var(--orange); }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
     }
 
-    /* ===== CERTIFICATES ===== */
-    .cert-section {
-      max-width: 1100px;
-      margin: 120px auto 60px;
-      padding: 45px 30px;
-      border-radius: 15px;
-      border: 2px solid #8a0000;
-      background: #111;
-      box-shadow: 0 0 30px rgba(138,0,0,0.6);
+    /* ======= HERO ======= */
+    .header-box {
+      padding: 160px 20px 60px; position: relative; text-align: center;
     }
 
-    .cert-shelf {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 35px;
-      justify-items: center;
-      perspective: 1200px;
+    #bubbles-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+
+    .header-text { position: relative; z-index: 5; }
+    .label { font-family: 'Caveat', cursive; font-size: 1.8rem; color: var(--orange); }
+    .title { font-family: 'Syne', sans-serif; font-size: clamp(2.5rem, 7vw, 4rem); font-weight: 800; line-height: 1.1; }
+
+    /* ======= CERTIFICATES GRID ======= */
+    .cert-section { max-width: 1200px; margin: 0 auto 100px; padding: 0 24px; }
+    
+    .cert-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px;
     }
 
-    .cert-book {
-      width: 100%;
-      max-width: 260px;
-      height: 280px;
-    }
-
-    .cert-inner {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      transform-style: preserve-3d;
-      transition: transform 0.8s ease;
-      cursor: pointer;
-    }
-
-    .cert-book:hover .cert-inner {
-      transform: rotateY(180deg);
-    }
-
-    .cert-front,
-    .cert-back {
-      position: absolute;
-      inset: 0;
-      backface-visibility: hidden;
-      border-radius: 15px;
-      border: 2px solid #8a0000;
-      box-shadow: 0 0 25px rgba(138,0,0,0.7);
-      background: #0c0c0c;
-    }
-
-    .cert-front {
+    .cert-card {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 40px 30px;
+      border: 1px solid rgba(255,109,0,0.1);
+      box-shadow: 0 10px 30px rgba(255,109,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 12px;
-      padding: 30px 20px;
       text-align: center;
     }
 
-    .cert-front h3 {
-      font-size: 1.05rem;
-      background: linear-gradient(90deg, #ff4d4d, #b30000);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .cert-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(255,109,0,0.1);
+      border-color: var(--orange-light);
     }
 
-    .cert-back {
-      transform: rotateY(180deg);
-      background: #000;
+    .icon { font-size: 3rem; margin-bottom: 20px; }
+    
+    .cert-card h3 { 
+      font-family: 'Syne', sans-serif; 
+      font-size: 1.3rem; 
+      color: var(--text-dark); 
+      margin-bottom: 12px; 
+      line-height: 1.3;
     }
 
-    .cert-back img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
+    .school { 
+      font-size: 0.85rem; 
+      color: var(--orange); 
+      font-weight: 700; 
+      text-transform: uppercase; 
+      letter-spacing: 1.5px; 
+      margin-bottom: 8px;
     }
 
-    /* ===== FOOTER ===== */
-    footer {
-      background: #111;
-      text-align: center;
-      padding: 30px 15px;
-      border-top: 3px solid #8a0000;
-      box-shadow: 0 0 20px rgba(138,0,0,0.8);
+    .status-pill {
+      font-size: 0.75rem;
+      padding: 6px 16px;
+      background: var(--cream);
+      color: var(--text-mid);
+      border-radius: 100px;
+      font-weight: 600;
+      margin-top: auto;
     }
 
-    footer a {
-      color: #ff4444;
-      font-weight: bold;
-      text-decoration: none;
+    .status-pill.highlight {
+      background: var(--orange);
+      color: #fff;
     }
+
+    /* ======= FOOTER ======= */
+    .site-footer {
+      background: var(--text-dark); padding: 60px 20px; text-align: center; color: rgba(255,255,255,0.4);
+    }
+    .footer-links { margin-top: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .footer-links a { color: var(--orange-light); text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+    .footer-links a:hover { color: #fff; }
+
   </style>
 </head>
 
 <body>
 
-<header>
-  <img src="images/logo.png" alt="KM Logo">
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">K<span>M</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="certificates.html" class="active">Certificates</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
 
-  <div class="hamburger" id="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
+<header class="header-box">
+  <canvas id="bubbles-canvas"></canvas>
+  <div class="header-text">
+    <p class="label">Academic & Industry Training</p>
+    <h1 class="title">Credentials &amp;<br>Certifications</h1>
   </div>
-
-  <nav id="nav">
-    <a href="index.html">Home</a>
-    <a href="projects.html">Projects</a>
-    <a href="about.html">About</a>
-    <a href="certificates.html" class="active">Certificates</a>
-    <a href="contact.html">Contact</a>
-  </nav>
 </header>
 
-<div class="portfolio-box">
-  <canvas id="bubbles-canvas"></canvas>
-  <div class="scroll-banner" data-aos="fade-down">
-    <img src="images/certificates-scroll.png" alt="Certificates">
-  </div>
-</div>
+<section class="cert-section">
+  <div class="cert-grid">
 
-<section class="cert-section" data-aos="fade-up">
-  <div class="cert-shelf">
-
-    
-
-    <div class="cert-book"><div class="cert-inner">
-      <div class="cert-front"><div class="badge">📜</div><h3>Federal Income Tax Level 1</h3></div>
-      <div class="cert-back"><img src="images/cert1.png"></div>
-    </div></div>
-
-    <div class="cert-book"><div class="cert-inner">
-      <div class="cert-front"><div class="badge">💻</div><h3>Junior IT Analyst Program</h3></div>
-      <div class="cert-back"><img src="images/cert2.png"></div>
-    </div></div>
-
-    <div class="cert-book"><div class="cert-inner">
-      <div class="cert-front"><div class="badge">🎓</div><h3>Google IT Support Professional</h3></div>
-      <div class="cert-back"><img src="images/cert3.png"></div>
-    </div></div>
-
-    <div class="cert-book"><div class="cert-inner">
-      <div class="cert-front"><div class="badge">🧠</div><h3>Technical Support Fundamentals</h3></div>
-      <div class="cert-back"><img src="images/cert7.png"></div>
-    </div></div>
-
-    <div class="cert-book"><div class="cert-inner">
-      <div class="cert-front"><div class="badge">🌐</div><h3>Computer Networking</h3></div>
-      <div class="cert-back"><img src="images/cert4.png"></div>
-    </div></div>
-
-    <div class="cert-book"><div class="cert-inner">
-      <div class="cert-front"><div class="badge">🛠️</div><h3>System Administration</h3></div>
-      <div class="cert-back"><img src="images/cert5.png"></div>
-    </div></div>
-
-    <div class="cert-book"><div class="cert-inner">
-      <div class="cert-front"><div class="badge">🔐</div><h3>IT Security</h3></div>
-      <div class="cert-back"><img src="images/cert6.png"></div>
-    </div></div>
-
-    <div class="cert-book"><div class="cert-inner">
-      <div class="cert-front"><div class="badge">☕</div><h3>Java Testing with JUnit</h3></div>
-      <div class="cert-back"><img src="images/cert8.png"></div>
-    </div></div>
-
-    <div class="cert-book"><div class="cert-inner">
-      <div class="cert-front"><div class="badge">📊</div><h3>Excel Essential Training</h3></div>
-      <div class="cert-back"><img src="images/cert11.png"></div>
-    </div></div>
-
-    <div class="cert-book"><div class="cert-inner">
-      <div class="cert-front"><div class="badge">🐧</div><h3>Introduction to Linux</h3></div>
-      <div class="cert-back"><img src="images/cert10.png"></div>
-    </div></div>
-
-    <div class="cert-book"><div class="cert-inner">
-      <div class="cert-front"><div class="badge">🤖</div><h3>Career Essentials in Generative AI</h3></div>
-      <div class="cert-back"><img src="images/cert9.png"></div>
-    </div></div>
-
- <div class="cert-book">
-  <div class="cert-inner">
-    
-    <div class="cert-front">
-      <div class="badge">🎓</div>
-      <h3>IT Programming</h3>
-      <p class="school">Nova Scotia Community College</p>
-      <p class="date">Coming Soon! May 2026</p>
+    <div class="cert-card">
+      <div class="icon">🎓</div>
+      <p class="school">NSCC</p>
+      <h3>IT Programming Diploma</h3>
+      <p class="status-pill highlight">Graduated: April 2026</p>
     </div>
 
-    <div class="cert-back">
-      <img 
-        src="images/coming-soon.png" 
-        alt="IT Programming Certificate Coming May 2026"
-      >
+    <div class="cert-card">
+      <div class="icon">📜</div>
+      <p class="school">H&R Block</p>
+      <h3>Federal Income Tax Level 1</h3>
+      <p class="status-pill">Certified</p>
     </div>
-        </div>
-  </div>
+
+    <div class="cert-card">
+      <div class="icon">🎓</div>
+      <p class="school">Google</p>
+      <h3>IT Support Professional</h3>
+      <p class="status-pill">Certified</p>
+    </div>
+
+    <div class="cert-card">
+      <div class="icon">💻</div>
+      <p class="school">Google</p>
+      <h3>Junior IT Analyst</h3>
+      <p class="status-pill">Certified</p>
+    </div>
+
+    <div class="cert-card">
+      <div class="icon">🧠</div>
+      <p class="school">Google</p>
+      <h3>Tech Support Fundamentals</h3>
+      <p class="status-pill">Certified</p>
+    </div>
+
+    <div class="cert-card">
+      <div class="icon">🌐</div>
+      <p class="school">Google</p>
+      <h3>Computer Networking</h3>
+      <p class="status-pill">Certified</p>
+    </div>
+
+    <div class="cert-card">
+      <div class="icon">🛠️</div>
+      <p class="school">Google</p>
+      <h3>System Administration</h3>
+      <p class="status-pill">Certified</p>
+    </div>
+
+    <div class="cert-card">
+      <div class="icon">🔐</div>
+      <p class="school">Google</p>
+      <h3>IT Security</h3>
+      <p class="status-pill">Certified</p>
+    </div>
+
+    <div class="cert-card">
+      <div class="icon">☕</div>
+      <p class="school">LinkedIn Learning</p>
+      <h3>Java Testing with JUnit</h3>
+      <p class="status-pill">Completed</p>
+    </div>
+
+    <div class="cert-card">
+      <div class="icon">📊</div>
+      <p class="school">LinkedIn Learning</p>
+      <h3>Excel Essential Training</h3>
+      <p class="status-pill">Completed</p>
+    </div>
+
+    <div class="cert-card">
+      <div class="icon">🐧</div>
+      <p class="school">LinkedIn Learning</p>
+      <h3>Introduction to Linux</h3>
+      <p class="status-pill">Completed</p>
+    </div>
+
+    <div class="cert-card">
+      <div class="icon">🤖</div>
+      <p class="school">Microsoft / LinkedIn</p>
+      <h3>Generative AI Essentials</h3>
+      <p class="status-pill">Completed</p>
+    </div>
 
   </div>
 </section>
 
-
 <footer class="site-footer">
-  <p>© 2025 Katherine McNeil</p>
-  <p class="footer-links">
-    <a href="index.html">Home</a> |
-    <a href="projects.html">Projects</a> |
-    <a href="about.html">About</a> |
-    <a href="certificates.html">Certificates</a> |
+  <p>© 2025–2026 Katherine McNeil. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="about.html">About</a>
+    <a href="certificates.html">Certificates</a>
     <a href="contact.html">Contact</a>
-  </p>
+  </div>
 </footer>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init();</script>
 
 <script>
   const hamburger = document.getElementById("hamburger");
-  const nav = document.getElementById("nav");
+  const navLinks = document.getElementById("navLinks");
+  hamburger.addEventListener("click", () => navLinks.classList.toggle("open"));
 
-  hamburger.addEventListener("click", () => {
-    nav.classList.toggle("show");
-  });
-</script>
-
-<script>
   const canvas = document.getElementById('bubbles-canvas');
   const ctx = canvas.getContext('2d');
   let bubbles = [];
@@ -401,14 +283,14 @@
   window.addEventListener('resize', resizeCanvas);
   resizeCanvas();
 
-  const colors = ['rgba(138,0,0,0.6)','rgba(255,0,0,0.4)'];
+  const colors = ['rgba(255,109,0,0.1)', 'rgba(255,171,64,0.08)'];
 
-  for (let i = 0; i < 60; i++) {
+  for (let i = 0; i < 40; i++) {
     bubbles.push({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      r: Math.random() * 18 + 6,
-      s: Math.random() * 0.7 + 0.3,
+      r: Math.random() * 20 + 5,
+      s: Math.random() * 0.5 + 0.2,
       c: colors[Math.floor(Math.random() * colors.length)]
     });
   }
@@ -421,8 +303,8 @@
       ctx.arc(b.x,b.y,b.r,0,Math.PI*2);
       ctx.fill();
       b.y -= b.s;
-      if (b.y < -10) {
-        b.y = canvas.height + 10;
+      if (b.y < -20) {
+        b.y = canvas.height + 20;
         b.x = Math.random() * canvas.width;
       }
     }

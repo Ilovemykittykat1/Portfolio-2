@@ -3,329 +3,253 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="author" content="Katherine McNeil" />
-  <meta name="description" content="Resume and Background of Katherine McNeil" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About | Katherine McNeil</title>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@400;500;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --orange: #ff6d00;
+      --orange-light: #ff9e40;
+      --cream: #fff8f0;
+      --white: #ffffff;
+      --charcoal: #1a1714;
+      --text-dark: #2e2418;
+      --text-mid: #6b5b4a;
+      --grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0c0c0c;
-      color: #e5e5e5;
-      margin: 0;
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.6;
       overflow-x: hidden;
     }
 
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    body::after {
+      content: ''; position: fixed; inset: 0; background: var(--grain);
+      pointer-events: none; z-index: 9999;
     }
 
-    /* ===== HEADER ===== */
-    header {
-      background: linear-gradient(135deg, #0c0c0c, #8a0000, #0c0c0c);
-      background-size: 400% 400%;
-      animation: gradientShift 12s ease infinite;
-      padding: 20px;
-      border-bottom: 3px solid #8a0000;
-      box-shadow: 0 0 30px rgba(138,0,0,0.8);
-      position: relative;
-      text-align: center;
-      z-index: 5;
+    /* ======= NAVIGATION ======= */
+    .site-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 18px 40px; display: flex; justify-content: space-between; align-items: center;
+      background: rgba(255, 248, 240, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 2px solid rgba(255, 109, 0, 0.15);
     }
 
-    header img {
-      width: 120px;
-      margin: 0 auto 10px;
-      display: block;
+    .nav-logo {
+      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.5rem;
+      color: var(--orange); text-decoration: none;
     }
+    .nav-logo span { color: var(--text-dark); }
 
-    /* ===== PROFILE BUBBLE ===== */
-    .profile-bubble {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 2;
-      pointer-events: none; /* FIX */
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-weight: 500; font-size: 0.95rem; color: var(--text-dark);
+      text-decoration: none; transition: 0.3s;
     }
+    .nav-links a:hover, .nav-links a.active { color: var(--orange); }
 
-    .profile-bubble img {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #8a0000;
-      box-shadow: 0 0 25px rgba(138,0,0,0.9);
-      background: #111;
-    }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; border: none; background: none; }
+    .hamburger span { width: 26px; height: 2.5px; background: var(--orange); border-radius: 2px; }
 
-    /* ===== NAV ===== */
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-    }
-
-    nav a {
-      color: #e5e5e5;
-      font-weight: bold;
-      text-decoration: none;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: #ff4d4d;
-      text-decoration: underline;
-    }
-
-    /* ===== HAMBURGER ===== */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      position: absolute;
-      right: 20px;
-      top: 32px;
-      z-index: 10; /* FIX */
-    }
-
-    .hamburger span {
-      width: 28px;
-      height: 3px;
-      background: #ff4d4d;
-      border-radius: 2px;
-    }
-
-    /* ===== MOBILE NAV ===== */
     @media (max-width: 768px) {
-      nav {
-        display: none;
-        flex-direction: column;
-        background: #111;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        padding: 20px 0;
-        border-bottom: 3px solid #8a0000;
-      }
-
-      nav.show {
-        display: flex;
-      }
-
-      .hamburger {
-        display: flex;
-      }
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); flex-direction: column; padding: 20px; text-align: center; border-bottom: 3px solid var(--orange); }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
     }
 
-    /* ===== BUBBLES ===== */
-    .portfolio-box {
+    /* ======= HEADER ======= */
+    .profile-header {
+      padding-top: 140px;
       position: relative;
-      height: 250px;
-      margin-top: 30px;
-      overflow: hidden;
+      height: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
 
     #bubbles-canvas {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;
     }
 
-    /* ===== RESUME ===== */
-    .resume-section {
-      max-width: 1000px;
-      margin: 60px auto;
-      padding: 45px 30px;
-      border-radius: 15px;
-      border: 2px solid #8a0000;
-      background: #111;
-      box-shadow: 0 0 30px rgba(138,0,0,0.6);
+    .header-text { position: relative; z-index: 5; }
+    .header-text h1 { font-family: 'Syne', sans-serif; font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 800; letter-spacing: -2px; line-height: 1; }
+    .label { font-family: 'Caveat', cursive; font-size: 1.8rem; color: var(--orange); }
+
+    /* ======= CONTENT CONTAINER ======= */
+    .content-container {
+      max-width: 1000px; margin: 0 auto 100px; padding: 0 24px;
     }
 
-    .resume-section h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      background: linear-gradient(90deg, #ff4d4d, #b30000);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    .story-card {
+      background: #fff; border-radius: 30px; padding: 60px;
+      border: 1px solid rgba(255,109,0,0.1);
+      box-shadow: 0 30px 60px rgba(255,109,0,0.05);
     }
 
-    .resume-buttons {
-      display: flex;
-      justify-content: center;
-      margin: 30px 0;
+    h3 {
+      font-family: 'Syne', sans-serif; font-size: 1.8rem; color: var(--orange);
+      margin: 50px 0 20px; border-bottom: 2px solid var(--orange); padding-bottom: 10px;
+      display: inline-block;
     }
+
+    p { margin-bottom: 24px; color: var(--text-mid); font-size: 1.05rem; }
+    strong { color: var(--text-dark); }
+
+    .grid-story {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 40px 0;
+    }
+
+    .story-block { background: var(--cream); padding: 30px; border-radius: 20px; border: 1px solid rgba(255,109,0,0.1); }
+    .story-block h4 { font-family: 'Syne', sans-serif; margin-bottom: 15px; color: var(--text-dark); font-size: 1.2rem; }
 
     .resume-btn {
-      background: #8a0000;
-      color: #fff;
-      padding: 14px 26px;
-      border-radius: 30px;
-      font-weight: bold;
-      text-decoration: none;
-      box-shadow: 0 0 18px rgba(138,0,0,0.8);
+      display: inline-block; background: var(--orange); color: white;
+      padding: 14px 30px; border-radius: 100px; font-weight: 700;
+      text-decoration: none; margin-top: 20px; transition: 0.3s;
+      box-shadow: 0 10px 25px rgba(255, 109, 0, 0.2);
     }
+    .resume-btn:hover { background: var(--charcoal); transform: translateY(-3px); }
 
-    .resume-section h3 {
-      color: #ff4d4d;
-      border-bottom: 2px solid #8a0000;
-      margin-top: 35px;
-      padding-bottom: 6px;
+    /* ======= FOOTER ======= */
+    .site-footer {
+      background: var(--text-dark); padding: 60px 20px; text-align: center; color: rgba(255,255,255,0.4);
     }
+    .footer-links { margin-top: 20px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .footer-links a { color: var(--orange-light); text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+    .footer-links a:hover { color: #fff; }
 
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    ul li::before {
-      content: "🩸 ";
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      background: #111;
-      text-align: center;
-      padding: 30px 15px;
-      border-top: 3px solid #8a0000;
-      box-shadow: 0 0 20px rgba(138,0,0,0.8);
-    }
-
-    footer a {
-      color: #ff4d4d;
-      font-weight: bold;
-      text-decoration: none;
+    @media (max-width: 800px) {
+      .grid-story { grid-template-columns: 1fr; }
+      .story-card { padding: 40px 24px; }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <img src="images/logo.png" alt="KM Logo">
+<nav class="site-nav">
+  <a href="index.html" class="nav-logo">K<span>M</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="certificates.html">Certificates</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
 
-  <div class="hamburger" id="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
+<header class="profile-header">
+  <canvas id="bubbles-canvas"></canvas>
+  <div class="header-text">
+    <p class="label">The Storyteller & Developer</p>
+    <h1>Katherine McNeil</h1>
   </div>
-
-  <nav id="nav">
-    <a href="index.html">Home</a>
-    <a href="projects.html">Projects</a>
-    <a href="about.html" class="active">About</a>
-    <a href="certificates.html">Certificates</a>
-    <a href="contact.html">Contact</a>
-  </nav>
 </header>
 
-<div class="portfolio-box">
-  <canvas id="bubbles-canvas"></canvas>
-  <div class="profile-bubble">
-    <img src="images/me.png" alt="Katherine McNeil">
+<main class="content-container">
+  <div class="story-card">
+    
+    <h3>The Journey So Far</h3>
+    <p>I live at the intersection of technology and storytelling. With over 10 years of customer service expertise and a deep-rooted passion for IT, I’ve transitioned into the world of programming to build solutions that are as functional as they are creative. From fixing bugs that almost sent my laptop into orbit to designing full-scale digital worlds, I thrive on the challenge of turning complex logic into heart-felt stories.</p>
+
+    <div class="grid-story">
+      <div class="story-block">
+        <h4>Universal Love Light Blog</h4>
+        <p>Watching the skies while staying grounded on Earth. I explore astrology, planetary shifts, and the Age of Aquarius, connecting cosmic timing to our physical well-being and mindset. This blog is where spirit meets Earth through energy, cycles, and conscious living.</p>
+      </div>
+      <div class="story-block">
+        <h4>Mouse's Enchanted Adventures</h4>
+        <p>A realm where the bravest hero is an 1800s vampire tabby cat. Mouse faces danger with sharp wit and a polished red bowtie, accompanied by Bat (his red-winged familiar), the young warlock Devlin, and the enigmatic witch Katherina. It's a world where every leaf whispers secrets.</p>
+      </div>
+    </div>
+
+    <h3>Published on Amazon</h3>
+    <p>I am the author and illustrator of three published works that bring the Mouse universe to life. My mission is to invite readers of all ages to embrace the unknown and never underestimate a cat in a cape.</p>
+    <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 40px;">
+      <a href="https://www.amazon.ca/dp/B0GY9V684Q" target="_blank" class="resume-btn" style="background: var(--accent-teal);">Mouse’s Enchanted Adventures</a>
+      <a href="https://www.amazon.ca/dp/B0GXZ9BXK4" target="_blank" class="resume-btn" style="background: var(--accent-teal);">Buried Beneath the Fog</a>
+      <a href="https://www.amazon.ca/dp/B0FD9HNJZL" target="_blank" class="resume-btn" style="background: var(--accent-teal);">Katherina’s Spell Book</a>
+    </div>
+
+    <h3>Academic Foundation</h3>
+    <p style="font-size: 0.95rem; line-height: 1.8;"><strong>Technical Expertise Developed at NSCC:</strong><br>
+      ✦ Web Application Programming (Dynamic Data-Aware Sites)<br>
+      ✦ Mobile App Development (Android Studio & SDK/API)<br>
+      ✦ Programming in C & C++ (Memory Management & Data Structures)<br>
+      ✦ Windows Programming C# (.NET Framework & GUI)<br>
+      ✦ Database Fundamentals (DBAS 1007 & MySQL)<br>
+      ✦ Systems Analysis & Design (Agile & UML Methodologies)<br>
+      ✦ Networking & Security (Maintenance & Connectivity)
+    </p>
+
+    <h3>Industry Credentials</h3>
+    <p>
+       ✦ <strong>IT Programming Diploma</strong> – Nova Scotia Community College (Graduated April 2026)<br>
+       ✦ <strong>Google IT Support Professional Certificate</strong><br>
+       ✦ <strong>Career Essentials in Generative AI</strong> (Microsoft/LinkedIn)<br>
+       ✦ <strong>H&R Block Tax Academy</strong> (Federal Income Tax Level 1)
+    </p>
+
+    <h3>The Vision Ahead</h3>
+    <p>I am committed to landing a remote developer role where I can combine my technical logic with my creative flair. Whether I am building a SaaS product for creators or expanding Mouse’s interactive kids' world, I move forward with clarity, intention, and peace.</p>
+
+    <div style="text-align: center; margin-top: 60px; border-top: 1px solid #eee; padding-top: 40px;">
+      <p class="label" style="font-size: 2.2rem;">"The cosmos is the very rhythm your life is moving to."</p>
+      <a href="documents/Katherine_McNeil_Resume.pdf" download class="resume-btn">Download Full Résumé (PDF)</a>
+    </div>
   </div>
-</div>
-
-<section class="resume-section" data-aos="fade-up">
-  <h1>About Me & Résumé</h1>
-
-  <div class="resume-buttons">
-    <a href="documents/Katherine_McNeil_Resume.pdf" download class="resume-btn">
-      ⬇ Download Resume (PDF)
-    </a>
-  </div>
-
-  <h3>Summary of Qualifications</h3>
-  <p>Over 10 years of customer service experience, including IT support and web consulting. Known for strong communication and problem-solving skills and a passion for developing creative, user-friendly solutions.</p>
-
-  <p>Proficient in <strong>HTML, CSS, JavaScript, SQL, Java, C, C++</strong>. Experienced in troubleshooting, technical support, and building complete websites from concept to deployment including SEO, domain setup, and eCommerce integration.</p>
-
-  <p>Author and illustrator of three published children's books, combining storytelling, illustration, and technology into creative digital experiences.</p>
-
-  <h3>Education & Certifications</h3>
-  <p><strong>IT Programming Diploma</strong> – Nova Scotia Community College (In Progress)</p>
-
-  <p>Courses include Networking and Security, Data Fundamentals, Client Side Programming, C Programming, Logic and Programming, C++, Java, Systems Analysis and Design, Operating Systems, WHMIS, and NS OH and S Act Certification.</p>
-
-  <p><strong>H and R Block Tax Academy – Federal Income Tax Level 1</strong></p>
-  <p><strong>Google IT Support Professional Certificate</strong></p>
-  <p><strong>Career Essentials in Generative AI</strong></p>
-
-  <h3>Career Goals</h3>
-  <ul>
-    <li>Finish my IT Programming diploma with strong grades and a solid portfolio.</li>
-    <li>Land a remote entry level IT or developer role.</li>
-    <li>Publish more books and expand Mouse’s Enchanted Adventures.</li>
-    <li>Become a full stack developer.</li>
-    <li>Build and launch a SaaS product.</li>
-    <li>Create a complete interactive kids world.</li>
-  </ul>
-
-  <h3>Skills Inventory</h3>
-  <ul>
-    <li><strong>Languages:</strong> C, C++, Java, JavaScript, HTML, CSS, SQL</li>
-    <li><strong>Operating Systems:</strong> Windows, Linux, macOS, Android, iOS</li>
-    <li><strong>Networking:</strong> TCP IP, DNS, DHCP, VPNs, Firewalls</li>
-    <li><strong>Tools:</strong> VS Code, IntelliJ IDEA, MySQL, SQLite, VMware</li>
-    <li><strong>Technical Support:</strong> Troubleshooting and diagnostics</li>
-  </ul>
-
-  <h3>Learning Reflection</h3>
-  <p>I’ve grown a lot since starting IT. I’ve built apps, fixed bugs that almost sent my laptop into orbit, created full websites, and pushed myself through challenges I didn’t think I could handle.</p>
-</section>
+</main>
 
 <footer class="site-footer">
-  <p>© 2025 Katherine McNeil</p>
-  <p class="footer-links">
-    <a href="index.html">Home</a> |
-    <a href="projects.html">Projects</a> |
-    <a href="about.html">About</a> |
-    <a href="certificates.html">Certificates</a> |
+  <p>© 2025–2026 Katherine McNeil. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="about.html">About</a>
+    <a href="certificates.html">Certificates</a>
     <a href="contact.html">Contact</a>
-  </p>
+  </div>
 </footer>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init();</script>
-
 <script>
+  // Mobile Nav Toggle
   const hamburger = document.getElementById("hamburger");
-  const nav = document.getElementById("nav");
+  const navLinks = document.getElementById("navLinks");
+  hamburger.addEventListener("click", () => navLinks.classList.toggle("open"));
 
-  hamburger.addEventListener("click", () => {
-    nav.classList.toggle("show");
-  });
-</script>
-
-<script>
+  // Bubbles Logic
   const canvas = document.getElementById('bubbles-canvas');
   const ctx = canvas.getContext('2d');
   let bubbles = [];
 
   function resizeCanvas() {
     canvas.width = window.innerWidth;
-    canvas.height = 400;
+    canvas.height = 300;
   }
   window.addEventListener('resize', resizeCanvas);
   resizeCanvas();
 
-  const colors = ['rgba(138,0,0,0.6)','rgba(255,0,0,0.4)'];
+  const colors = ['rgba(255,109,0,0.1)', 'rgba(255,171,64,0.08)'];
 
-  for (let i = 0; i < 60; i++) {
+  for (let i = 0; i < 30; i++) {
     bubbles.push({
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
-      r: Math.random() * 18 + 6,
-      s: Math.random() * 0.7 + 0.3,
+      r: Math.random() * 20 + 5,
+      s: Math.random() * 0.4 + 0.1,
       c: colors[Math.floor(Math.random() * colors.length)]
     });
   }
@@ -338,8 +262,8 @@
       ctx.arc(b.x,b.y,b.r,0,Math.PI*2);
       ctx.fill();
       b.y -= b.s;
-      if (b.y < -10) {
-        b.y = canvas.height + 10;
+      if (b.y < -20) {
+        b.y = canvas.height + 20;
         b.x = Math.random() * canvas.width;
       }
     }

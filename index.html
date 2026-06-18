@@ -1,356 +1,1188 @@
 <!--
-Copyright (C) 2025 Katherine McNeil
+Copyright (C) 2025-2026 Katherine McNeil
 
 Author: Katherine McNeil
 
 This code is the property of Katherine McNeil and may not be copied,
 distributed, or modified without explicit permission.
 
-© 2025 Katherine McNeil. All rights reserved.
+© 2025-2026 Katherine McNeil. All rights reserved.
 -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="author" content="Katherine McNeil" />
-  <meta name="description" content="Explore Katherine McNeil's featured projects and work." />
+  <meta name="description" content="Katherine McNeil — Developer, Author, Creator. Portfolio showcasing tech, books, and creative work." />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home | Katherine McNeil</title>
+  <title>Katherine McNeil | Developer · Author · Creator</title>
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --orange: #ff6d00;
+      --orange-light: #ff9e40;
+      --orange-bright: #ffab40;
+      --tangerine: #ff8f00;
+      --cream: #fff8f0;
+      --warm-white: #fefcf9;
+      --charcoal: #1a1714;
+      --dark-warm: #2c2520;
+      --mid-brown: #5c4a3a;
+      --text-dark: #2e2418;
+      --text-mid: #6b5b4a;
+      --accent-teal: #00897b;
+      --accent-coral: #ff5722;
+      --grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0c0c0c;
-      color: #e5e5e5;
-      margin: 0;
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
       overflow-x: hidden;
+      line-height: 1.6;
     }
 
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: var(--grain);
+      pointer-events: none;
+      z-index: 9999;
     }
 
-    /* ===== HEADER ===== */
-    header {
-      background: linear-gradient(135deg, #0c0c0c, #8a0000, #0c0c0c);
-      background-size: 400% 400%;
-      animation: gradientShift 12s ease infinite;
-      padding: 20px;
-      border-bottom: 3px solid #8a0000;
-      box-shadow: 0 0 30px rgba(138,0,0,0.8);
-      position: relative;
-      text-align: center;
-      z-index: 50;
-    }
-
-    header img {
-      width: 100px;
-      display: block;
-      margin: 0 auto 10px;
-    }
-
-    /* ===== NAV ===== */
-    nav {
+    .site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 18px 40px;
       display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 248, 240, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 2px solid rgba(255, 109, 0, 0.15);
+      transition: box-shadow 0.3s;
     }
 
-    nav a {
-      color: #e5e5e5;
-      font-weight: bold;
+    .site-nav.scrolled {
+      box-shadow: 0 4px 30px rgba(255, 109, 0, 0.12);
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--orange);
       text-decoration: none;
+      letter-spacing: -0.5px;
     }
 
-    nav a:hover,
-    nav a.active {
-      color: #ff4444;
+    .nav-logo span {
+      color: var(--text-dark);
+      font-weight: 600;
     }
 
-    /* ===== HAMBURGER ===== */
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 4px;
+      transition: color 0.25s;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--orange);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover { color: var(--orange); }
+    .nav-links a:hover::after,
+    .nav-links a.active::after { width: 100%; }
+    .nav-links a.active { color: var(--orange); }
+
     .hamburger {
       display: none;
       flex-direction: column;
       gap: 5px;
       cursor: pointer;
-      position: absolute;
-      right: 20px;
-      top: 32px;
-      z-index: 100;
+      background: none;
+      border: none;
+      padding: 4px;
     }
 
     .hamburger span {
-      width: 28px;
-      height: 3px;
-      background: #ff4444;
+      width: 26px;
+      height: 2.5px;
+      background: var(--orange);
       border-radius: 2px;
+      transition: 0.3s;
     }
 
-    /* ===== MOBILE NAV ===== */
     @media (max-width: 768px) {
-      nav {
+      .site-nav { padding: 14px 20px; }
+      .nav-links {
         display: none;
-        flex-direction: column;
-        background: #111;
         position: absolute;
         top: 100%;
         left: 0;
         right: 0;
-        padding: 20px 0;
-        border-bottom: 3px solid #8a0000;
-        z-index: 200; /* FIX */
+        background: var(--cream);
+        flex-direction: column;
+        padding: 24px 30px;
+        gap: 18px;
+        border-bottom: 3px solid var(--orange);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.08);
       }
-
-      nav.show {
-        display: flex;
-      }
-
-      .hamburger {
-        display: flex;
-      }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
     }
 
-    /* ===== HERO ===== */
-    .portfolio-box {
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 120px 60px 80px;
+      gap: 60px;
       position: relative;
-      height: 400px;
-      margin-top: 40px;
-      border-radius: 15px;
       overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(255,109,0,0.12) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(0,137,123,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-greeting {
+      font-family: 'Caveat', cursive;
+      font-size: 1.6rem;
+      color: var(--orange);
+      margin-bottom: 8px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.6s 0.2s forwards;
+    }
+
+    .hero-name {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 0.7s 0.35s forwards;
+    }
+
+    .hero-name .highlight {
+      background: linear-gradient(135deg, var(--orange), var(--accent-coral));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-tagline {
+      font-size: 1.15rem;
+      color: var(--text-mid);
+      max-width: 480px;
+      margin-bottom: 32px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.7s 0.5s forwards;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.7s 0.65s forwards;
+    }
+
+    .hero-tag {
+      padding: 8px 18px;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    .hero-tag.dev {
+      background: var(--orange);
+      color: #fff;
+    }
+
+    .hero-tag.author {
+      background: var(--accent-teal);
+      color: #fff;
+    }
+
+    .hero-tag.creative {
+      background: var(--text-dark);
+      color: var(--cream);
+    }
+
+    .hero-visual {
+      position: relative;
+      z-index: 2;
       display: flex;
       justify-content: center;
       align-items: center;
+      opacity: 0;
+      transform: translateX(40px);
+      animation: slideLeft 0.8s 0.4s forwards;
+    }
+
+    .hero-card {
+      width: 340px;
+      height: 420px;
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.12), 0 0 0 1px rgba(255,109,0,0.15);
+      transform: rotate(-3deg);
+      transition: transform 0.5s ease;
+    }
+
+    .hero-card:hover {
+      transform: rotate(0deg) scale(1.02);
+    }
+
+    .hero-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-card-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 30px 24px 24px;
+      background: linear-gradient(transparent, rgba(26,23,20,0.85));
+      color: #fff;
+    }
+
+    .hero-card-overlay h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem;
+      margin-bottom: 4px;
+    }
+
+    .hero-card-overlay p {
+      font-size: 0.85rem;
+      opacity: 0.8;
+    }
+
+    .float-shape {
+      position: absolute;
+      border-radius: 50%;
       z-index: 1;
     }
 
-    #bubbles-canvas {
+    .float-shape.one {
+      width: 120px;
+      height: 120px;
+      background: var(--orange-light);
+      opacity: 0.2;
+      top: 20px;
+      right: 20px;
+      animation: floatA 6s ease-in-out infinite;
+    }
+
+    .float-shape.two {
+      width: 80px;
+      height: 80px;
+      background: var(--accent-teal);
+      opacity: 0.15;
+      bottom: 40px;
+      left: 40px;
+      animation: floatB 7s ease-in-out infinite;
+    }
+
+    @keyframes floatA {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(10deg); }
+    }
+
+    @keyframes floatB {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(12px) rotate(-8deg); }
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 140px 30px 60px;
+        gap: 40px;
+      }
+      .hero-tagline { margin-left: auto; margin-right: auto; }
+      .hero-tags { justify-content: center; }
+      .hero-card { width: 280px; height: 350px; }
+    }
+
+    .section-label {
+      font-family: 'Caveat', cursive;
+      font-size: 1.2rem;
+      color: var(--orange);
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--text-mid);
+      max-width: 560px;
+    }
+
+    .bento-section {
+      padding: 100px 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .bento-header {
+      margin-bottom: 50px;
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 20px;
+    }
+
+    .bento-card {
+      border-radius: 20px;
+      padding: 36px 30px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      cursor: default;
+    }
+
+    .bento-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    }
+
+    .bento-card .card-icon {
+      font-size: 2.2rem;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .bento-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .bento-card p {
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .bento-card.big {
+      grid-column: span 2;
+      background: var(--charcoal);
+      color: var(--cream);
+    }
+
+    .bento-card.big h3 { color: var(--orange-bright); }
+
+    .bento-card.orange {
+      background: var(--orange);
+      color: #fff;
+    }
+
+    .bento-card.teal {
+      background: var(--accent-teal);
+      color: #fff;
+    }
+
+    .bento-card.light {
+      background: #fff;
+      border: 2px solid rgba(255,109,0,0.15);
+      color: var(--text-dark);
+    }
+
+    .bento-card.light h3 { color: var(--orange); }
+
+    .bento-card.warm {
+      background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+      color: var(--text-dark);
+    }
+
+    .bento-card.warm h3 { color: var(--accent-coral); }
+
+    @media (max-width: 900px) {
+      .bento-section { padding: 60px 24px; }
+      .bento-grid {
+        grid-template-columns: 1fr;
+      }
+      .bento-card.big { grid-column: span 1; }
+    }
+
+    .carousel-section {
+      padding: 80px 40px;
+      background: var(--charcoal);
+      color: var(--cream);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .carousel-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--orange), var(--accent-coral), var(--orange-light), var(--accent-teal), var(--orange));
+    }
+
+    .carousel-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .carousel-header .section-title { color: #fff; }
+
+    .carousel-track-wrapper {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 24px;
+      animation: scroll 35s linear infinite;
+      width: max-content;
+    }
+
+    .carousel-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .carousel-card {
+      flex-shrink: 0;
+      width: 280px;
+      padding: 32px 26px;
+      border-radius: 16px;
+      background: var(--dark-warm);
+      border: 1px solid rgba(255,109,0,0.2);
+      transition: border-color 0.3s, transform 0.3s;
+    }
+
+    .carousel-card:hover {
+      border-color: var(--orange);
+      transform: translateY(-4px);
+    }
+
+    .carousel-card .c-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+
+    .carousel-card .c-tag.lang { background: var(--orange); color: #fff; }
+    .carousel-card .c-tag.tool { background: var(--accent-teal); color: #fff; }
+    .carousel-card .c-tag.concept { background: var(--mid-brown); color: var(--cream); }
+    .carousel-card .c-tag.creative { background: var(--accent-coral); color: #fff; }
+
+    .carousel-card h4 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .carousel-card p {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.5;
+    }
+
+    .creative-section {
+      padding: 100px 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .creative-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 50px;
+      align-items: start;
+    }
+
+    .creative-card {
+      border-radius: 20px;
+      overflow: hidden;
+      background: #fff;
+      border: 2px solid rgba(255,109,0,0.12);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .creative-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    }
+
+    .creative-card-visual {
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      position: relative;
+    }
+
+    .creative-card-visual.books-bg {
+      background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+    }
+
+    .creative-card-visual.blog-bg {
+      background: linear-gradient(135deg, #ede7f6, #d1c4e9);
+    }
+
+    .creative-card-body {
+      padding: 28px 26px;
+    }
+
+    .creative-card-body h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+
+    .creative-card-body p {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+
+    .creative-card-body .card-link {
+      display: inline-block;
+      margin-top: 16px;
+      font-weight: 700;
+      color: var(--orange);
+      text-decoration: none;
+      font-size: 0.9rem;
+      position: relative;
+    }
+
+    .creative-card-body .card-link::after {
+      content: ' →';
+      transition: transform 0.2s;
+      display: inline-block;
+    }
+
+    .creative-card-body .card-link:hover::after {
+      transform: translateX(4px);
+    }
+
+    .blog-topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .blog-topic {
+      padding: 4px 10px;
+      border-radius: 100px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: #f3e5f5;
+      color: #7b1fa2;
+      border: 1px solid rgba(123,31,162,0.15);
+    }
+
+    @media (max-width: 768px) {
+      .creative-section { padding: 60px 24px; }
+      .creative-grid { grid-template-columns: 1fr; }
+    }
+
+    .edu-section {
+      padding: 80px 60px;
+      background: linear-gradient(135deg, #fff3e0 0%, var(--cream) 100%);
+      position: relative;
+    }
+
+    .edu-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .edu-item {
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+      margin-bottom: 40px;
+    }
+
+    .edu-marker {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      background: var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      color: #fff;
+    }
+
+    .edu-content h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+
+    .edu-content .edu-school {
+      font-size: 0.9rem;
+      color: var(--orange);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .edu-content p {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      line-height: 1.55;
+    }
+
+    .cert-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .cert-pill {
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: #fff;
+      color: var(--text-dark);
+      border: 1px solid rgba(255,109,0,0.2);
+    }
+
+    @media (max-width: 768px) {
+      .edu-section { padding: 60px 24px; }
+      .edu-item { flex-direction: column; gap: 12px; }
+    }
+
+    .cta-section {
+      padding: 100px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
       position: absolute;
       inset: 0;
-      z-index: 1;
-      pointer-events: none; /* FIX */
+      background: radial-gradient(ellipse at center, rgba(255,109,0,0.06) 0%, transparent 70%);
+      pointer-events: none;
     }
 
-    .hero-image {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      height: auto;
-      max-height: 100%;
-      object-fit: contain;
-      border-radius: 15px;
-      box-shadow: 0 0 30px rgba(138,0,0,0.9);
-    }
-
-    /* ===== CONTENT ===== */
-    .section {
-      max-width: 900px;
-      margin: 40px auto;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .section h2 {
-      color: #ff4444;
-      border-bottom: 3px solid #8a0000;
-      padding-bottom: 10px;
+    .cta-section .section-title {
       margin-bottom: 20px;
     }
 
-    .section a {
-      color: #ff4444;
-      font-weight: bold;
+    .cta-section .section-sub {
+      margin: 0 auto 36px;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      padding: 16px 42px;
+      border-radius: 100px;
+      background: var(--orange);
+      color: #fff;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
       text-decoration: none;
+      box-shadow: 0 8px 30px rgba(255,109,0,0.3);
+      transition: transform 0.25s, box-shadow 0.25s;
     }
 
-    /* ===== CAROUSEL ===== */
-    .profile {
-      perspective: 1000px;
-      display: flex;
-      justify-content: center;
-      margin: 40px auto;
-      max-width: 800px;
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(255,109,0,0.4);
     }
 
-    .carousel {
-      width: 50%;
-      height: 180px;
+    .cta-resume {
+      display: inline-block;
+      margin-left: 16px;
+      padding: 16px 42px;
+      border-radius: 100px;
+      background: transparent;
+      color: var(--orange);
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      text-decoration: none;
+      border: 2px solid var(--orange);
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .cta-resume:hover {
+      background: var(--orange);
+      color: #fff;
+    }
+
+    @media (max-width: 600px) {
+      .cta-resume { margin-left: 0; margin-top: 12px; display: block; }
+      .cta-btn { display: block; }
+    }
+
+    .site-footer { 
+      background: var(--text-dark); 
+      padding: 50px 20px; 
+      color: rgba(255, 255, 255, 0.4); 
+      text-align: center; 
       position: relative;
-      transform-style: preserve-3d;
-      animation: spin 25s infinite linear;
+      z-index: 10;
     }
 
-    @keyframes spin {
-      from { transform: rotateY(0deg); }
-      to { transform: rotateY(360deg); }
+    .site-footer p {
+      margin: 0;
+      font-size: 0.9rem;
     }
 
-    .carousel-panel {
-      position: absolute;
-      width: 70%;
-      height: 75%;
-      top: 12%;
-      left: 15%;
-      background: #111;
-      border: 3px solid #8a0000;
-      border-radius: 15px;
-      box-shadow: 0 0 18px rgba(138,0,0,0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      font-weight: 900;
+    .footer-links { 
+      margin-top: 20px; 
+      display: flex; 
+      justify-content: center; 
+      gap: 20px; 
+      flex-wrap: wrap; 
     }
 
-    .carousel-panel:nth-child(1) { transform: rotateY(0deg) translateZ(300px); }
-    .carousel-panel:nth-child(2) { transform: rotateY(72deg) translateZ(300px); }
-    .carousel-panel:nth-child(3) { transform: rotateY(144deg) translateZ(300px); }
-    .carousel-panel:nth-child(4) { transform: rotateY(216deg) translateZ(300px); }
-    .carousel-panel:nth-child(5) { transform: rotateY(288deg) translateZ(300px); }
+    .site-footer a { 
+      color: var(--orange-light); 
+      text-decoration: none; 
+      font-size: 0.9rem; 
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
 
-    @media (max-width: 768px) {
-      .carousel {
-        width: 90%;
+    .site-footer a:hover { 
+      color: #ffffff; 
+    }
+
+    @media (max-width: 600px) {
+      .site-footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
       }
     }
 
-    /* ===== FOOTER ===== */
-    footer {
-      background: #111;
-      text-align: center;
-      padding: 30px 15px;
-      border-top: 3px solid #8a0000;
-      box-shadow: 0 0 20px rgba(138,0,0,0.8);
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    footer a {
-      color: #ff4444;
-      font-weight: bold;
-      text-decoration: none;
-      margin: 0 8px;
+    @keyframes slideLeft {
+      to { opacity: 1; transform: translateX(0); }
     }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
   </style>
 </head>
 
 <body>
 
-<header>
-  <img src="images/logo.png" alt="KM Logo" />
+<nav class="site-nav" id="siteNav">
+  <a href="index.html" class="nav-logo">K<span>M</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="certificates.html">Certificates</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
 
-  <div class="hamburger" id="hamburger">
-    <span></span>
-    <span></span>
-    <span></span>
+<section class="hero">
+  <div class="hero-text">
+    <p class="hero-greeting">Hey there, I'm</p>
+    <h1 class="hero-name">Katherine<br><span class="highlight">McNeil</span></h1>
+    <p class="hero-tagline">Developer, children's author, and creator of Mouse's Enchanted Adventures. I build things with code and tell stories with heart.</p>
+    <div class="hero-tags">
+      <span class="hero-tag dev">Developer</span>
+      <span class="hero-tag author">Author</span>
+      <span class="hero-tag creative">Creator</span>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="float-shape one"></div>
+    <div class="float-shape two"></div>
+    <div class="hero-card">
+      <img src="images/main.png" alt="Katherine McNeil" class="hero-card-img">
+    </div>
+  </div>
+</section>
+
+<section class="bento-section">
+  <div class="bento-header reveal">
+    <p class="section-label">What I Do</p>
+    <h2 class="section-title">Code. Create. Tell Stories.</h2>
+    <p class="section-sub">I live at the intersection of tech and creativity, building apps, writing children's books, and crafting digital experiences.</p>
   </div>
 
-  <nav id="nav">
-    <a href="index.html" class="active">Home</a>
+  <div class="bento-grid">
+    <div class="bento-card big reveal reveal-delay-1">
+      <span class="card-icon">&#60;/&#62;</span>
+      <h3>Software Development</h3>
+      <p>From C++ data structures to C# desktop apps and full web builds, two years of hands-on programming at NSCC turned problems into projects and projects into a diploma.</p>
+    </div>
+
+    <div class="bento-card orange reveal reveal-delay-2">
+      <span class="card-icon">&#128218;</span>
+      <h3>Children's Books</h3>
+      <p>Author and illustrator of Mouse's Enchanted Adventures, magical picture books brought to life with love, colour, and a little mouse named Mouse.</p>
+    </div>
+
+    <div class="bento-card light reveal reveal-delay-3">
+      <span class="card-icon">&#127760;</span>
+      <h3>Web Design</h3>
+      <p>Responsive, accessible websites from concept to deployment, covering HTML, CSS, JavaScript, SEO, domain setup, and eCommerce.</p>
+    </div>
+
+    <div class="bento-card teal reveal reveal-delay-4">
+      <span class="card-icon">&#9734;</span>
+      <h3>Astrology &amp; Spirituality Blog</h3>
+      <p>Writing about planetary shifts, cosmic cycles, spiritual awakening, and the energetic rhythms shaping our lives at Universal Love Light.</p>
+    </div>
+
+    <div class="bento-card warm reveal reveal-delay-5">
+      <span class="card-icon">&#128640;</span>
+      <h3>What's Next</h3>
+      <p>Full-stack development, launching a SaaS product, building an interactive kids' world, and writing more books. The adventure's just starting.</p>
+    </div>
+  </div>
+</section>
+
+<section class="carousel-section">
+  <div class="carousel-header reveal">
+    <p class="section-label">My Toolkit</p>
+    <h2 class="section-title">Skills &amp; Technologies</h2>
+  </div>
+
+  <div class="carousel-track-wrapper">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-card">
+        <span class="c-tag lang">Language</span>
+        <h4>C / C++</h4>
+        <p>Pointers, memory management, STL, and data structures built from scratch.</p>
+      </div>
+      <div class="carousel-card">
+        <span class="c-tag lang">Language</span>
+        <h4>C# / .NET</h4>
+        <p>WPF desktop apps with MVVM, Entity Framework, and SQL Server.</p>
+      </div>
+      <div class="carousel-card">
+        <span class="c-tag lang">Language</span>
+        <h4>Java</h4>
+        <p>Object-oriented development, JUnit testing, and Android apps.</p>
+      </div>
+      <div class="carousel-card">
+        <span class="c-tag lang">Language</span>
+        <h4>JavaScript</h4>
+        <p>Client-side programming, DOM manipulation, JSON, and dynamic web pages.</p>
+      </div>
+      <div class="carousel-card">
+        <span class="c-tag lang">Language</span>
+        <h4>HTML / CSS</h4>
+        <p>Semantic markup, responsive design, CSS preprocessors, and accessibility.</p>
+      </div>
+      <div class="carousel-card">
+        <span class="c-tag lang">Language</span>
+        <h4>SQL</h4>
+        <p>Database design, queries, stored procedures, MySQL, SQLite, and SQL Server.</p>
+      </div>
+      <div class="carousel-card">
+        <span class="c-tag tool">Tool</span>
+        <h4>Git &amp; GitHub</h4>
+        <p>Version control, branching strategies, and collaborative workflows.</p>
+      </div>
+      <div class="carousel-card">
+        <span class="c-tag tool">Tool</span>
+        <h4>Android Studio</h4>
+        <p>Mobile app development, UI design, debugging, and device testing.</p>
+      </div>
+      <div class="carousel-card">
+        <span class="c-tag tool">Tool</span>
+        <h4>VS Code / IntelliJ</h4>
+        <p>Day-to-day development environments for every language in the stack.</p>
+      </div>
+      <div class="carousel-card">
+        <span class="c-tag concept">Concept</span>
+        <h4>Data Structures</h4>
+        <p>Linked lists, stacks, queues, trees, graphs, implemented and applied.</p>
+      </div>
+      <div class="carousel-card">
+        <span class="c-tag concept">Concept</span>
+        <h4>Systems Analysis</h4>
+        <p>UML, agile methodologies, requirements gathering, and project planning.</p>
+      </div>
+      <div class="carousel-card">
+        <span class="c-tag concept">Concept</span>
+        <h4>Networking &amp; Security</h4>
+        <p>TCP/IP, DNS, DHCP, VPNs, firewalls, from client troubleshooting to architecture.</p>
+      </div>
+      <div class="carousel-card">
+        <span class="c-tag concept">Concept</span>
+        <h4>Linux &amp; Windows Admin</h4>
+        <p>OS installation, configuration, maintenance, and command-line fluency.</p>
+      </div>
+      <div class="carousel-card">
+        <span class="c-tag creative">Creative</span>
+        <h4>Illustration &amp; Design</h4>
+        <p>Children's book illustration, cover design, and digital art for print and web.</p>
+      </div>
+      <div class="carousel-card">
+        <span class="c-tag creative">Creative</span>
+        <h4>Self-Publishing</h4>
+        <p>KDP formatting, ISBN setup, cover specs, and marketing for indie authors.</p>
+      </div>
+      <div class="carousel-card">
+        <span class="c-tag creative">Creative</span>
+        <h4>WordPress</h4>
+        <p>Blog development, theme customization, and content management.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="creative-section">
+  <div class="reveal">
+    <p class="section-label">Beyond the Code</p>
+    <h2 class="section-title">Books &amp; Creative Work</h2>
+    <p class="section-sub">Programming is only half the story. I write children's books, explore astrology and spirituality, and build brand worlds.</p>
+  </div>
+
+  <div class="creative-grid">
+    <div class="creative-card reveal reveal-delay-1">
+      <div class="creative-card-visual books-bg">&#128029;&#128150;</div>
+      <div class="creative-card-body">
+        <h3>Mouse's Enchanted Adventures</h3>
+        <p>A series of children's picture books featuring a lovable mouse on magical journeys, including "Mice with Love," written, illustrated, and self-published through KDP.</p>
+        <a href="projects.html" class="card-link">See the books</a>
+      </div>
+    </div>
+
+    <div class="creative-card reveal reveal-delay-2">
+      <div class="creative-card-visual blog-bg">&#9734;&#127769;&#10024;</div>
+      <div class="creative-card-body">
+        <h3>Universal Love Light</h3>
+        <p>An astrology and spirituality blog following the stars, the cycles, and the spiritual rhythms shaping our lives. Covering planetary shifts, moon phases, collective patterns, spiritual awakening, and the energetic tides we all move through.</p>
+        <div class="blog-topics">
+          <span class="blog-topic">Astrology</span>
+          <span class="blog-topic">Moon Cycles</span>
+          <span class="blog-topic">Mercury Retrograde</span>
+          <span class="blog-topic">Spiritual Awakening</span>
+          <span class="blog-topic">Saturn Returns</span>
+          <span class="blog-topic">Energy &amp; Cycles</span>
+        </div>
+        <a href="https://www.universallovelight.com/" target="_blank" class="card-link">Visit Universal Love Light</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="edu-section">
+  <div class="edu-inner">
+    <div class="reveal">
+      <p class="section-label">Background</p>
+      <h2 class="section-title">Education &amp; Credentials</h2>
+    </div>
+
+    <div class="edu-item reveal reveal-delay-1">
+      <div class="edu-marker">&#127891;</div>
+      <div class="edu-content">
+        <h3>IT Programming Diploma</h3>
+        <p class="edu-school">Nova Scotia Community College · Completed April 2026</p>
+        <p>Two-year diploma covering the full software development stack, from logic and algorithms through data structures, networking, mobile development, and integrated capstone projects.</p>
+        <div class="cert-pills">
+          <span class="cert-pill">C / C++</span>
+          <span class="cert-pill">C# / .NET</span>
+          <span class="cert-pill">Java</span>
+          <span class="cert-pill">JavaScript</span>
+          <span class="cert-pill">Data Structures</span>
+          <span class="cert-pill">Android Dev</span>
+          <span class="cert-pill">Web Apps</span>
+          <span class="cert-pill">Networking</span>
+          <span class="cert-pill">Linux</span>
+          <span class="cert-pill">Systems Analysis</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="edu-item reveal reveal-delay-2">
+      <div class="edu-marker">&#128187;</div>
+      <div class="edu-content">
+        <h3>Industry Certifications</h3>
+        <p class="edu-school">Google · LinkedIn Learning · H&amp;R Block</p>
+        <p>Google IT Support Professional, Career Essentials in Generative AI, Java Testing with JUnit, Excel Essential Training, Introduction to Linux, IT Security, Computer Networking, System Administration, Technical Support Fundamentals, and Federal Income Tax Level 1.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="reveal">
+    <p class="section-label">Let's Connect</p>
+    <h2 class="section-title">Got a project in mind?</h2>
+    <p class="section-sub">Whether it's a dev role, a creative collaboration, or just saying hey, I'd love to hear from you.</p>
+    <div style="margin-top: 10px;">
+      <a href="contact.html" class="cta-btn">Get in Touch</a>
+      <a href="documents/Katherine_McNeil_Resume.pdf" download class="cta-resume">Download Resume</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>&copy; 2025-2026 Katherine McNeil. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="index.html">Home</a>
     <a href="projects.html">Projects</a>
     <a href="about.html">About</a>
-    <a href="certificates.html">Certificates</a>
     <a href="contact.html">Contact</a>
-  </nav>
-</header>
-
-<div class="portfolio-box">
-  <canvas id="bubbles-canvas"></canvas>
-  <img src="images/portfolio-banner" class="hero-image" alt="Portfolio Banner">
-</div>
-
-<section class="section" data-aos="fade-up">
-  <h2>Explore</h2>
-  <p>
-    Check out my <a href="projects.html">projects</a>,
-    learn <a href="about.html">more about me</a>,
-    or <a href="contact.html">get in touch</a>.
-  </p>
-</section>
-
-<h2 style="text-align:center; font-size:2.5rem; margin:50px 0; color:#ff4444;">
-  Skills
-</h2>
-
-<section class="profile">
-  <div class="carousel">
-    <div class="carousel-panel">Java</div>
-    <div class="carousel-panel">Android</div>
-    <div class="carousel-panel">Web Dev</div>
-    <div class="carousel-panel">C++</div>
-    <div class="carousel-panel">JavaScript</div>
   </div>
-</section>
-<footer class="site-footer">
-  <p>© 2025 Katherine McNeil</p>
-  <p class="footer-links">
-    <a href="index.html">Home</a> |
-    <a href="projects.html">Projects</a> |
-    <a href="about.html">About</a> |
-    <a href="certificates.html">Certificates</a> |
-    <a href="contact.html">Contact</a>
-  </p>
 </footer>
 
-
-
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init();</script>
-
 <script>
-  const hamburger = document.getElementById("hamburger");
-  const nav = document.getElementById("nav");
-
-  hamburger.addEventListener("click", () => {
-    nav.classList.toggle("show");
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('navLinks').classList.toggle('open');
   });
-</script>
 
-<script>
-  const canvas = document.getElementById('bubbles-canvas');
-  const ctx = canvas.getContext('2d');
-  let bubbles = [];
+  window.addEventListener('scroll', () => {
+    document.getElementById('siteNav').classList.toggle('scrolled', window.scrollY > 40);
+  });
 
-  function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = 400;
-  }
-  window.addEventListener('resize', resizeCanvas);
-  resizeCanvas();
-
-  const colors = ['rgba(138,0,0,0.6)','rgba(255,0,0,0.4)'];
-
-  for (let i = 0; i < 60; i++) {
-    bubbles.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      r: Math.random() * 18 + 6,
-      s: Math.random() * 0.7 + 0.3,
-      c: colors[Math.floor(Math.random() * colors.length)]
-    });
-  }
-
-  function draw() {
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    for (let b of bubbles) {
-      ctx.beginPath();
-      ctx.fillStyle = b.c;
-      ctx.arc(b.x,b.y,b.r,0,Math.PI*2);
-      ctx.fill();
-      b.y -= b.s;
-      if (b.y < -10) {
-        b.y = canvas.height + 10;
-        b.x = Math.random() * canvas.width;
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
       }
-    }
-    requestAnimationFrame(draw);
-  }
-  draw();
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+  revealEls.forEach(el => observer.observe(el));
+
+  const track = document.getElementById('carouselTrack');
+  track.innerHTML += track.innerHTML;
 </script>
 
 </body>
